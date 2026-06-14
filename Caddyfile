@@ -1,0 +1,13 @@
+# Static file server for the marketing site. Railway terminates TLS at its edge,
+# so Caddy just serves plain HTTP on the port Railway injects ($PORT).
+{
+	admin off
+	auto_https off
+}
+
+:{$PORT:8080} {
+	root * /srv
+	encode gzip zstd
+	file_server
+	try_files {path} {path}/ /index.html
+}
