@@ -1,7 +1,8 @@
-# הילה — Website / אתר נחיתה
+# נשימה — Website / אתר נחיתה
 
-Landing page for **Hila (הילה)** — the Hebrew AI coaching app that helps pregnant
-women quit smoking, with a pilot sign-up form. Static, responsive, RTL, no build step.
+Landing page for **Neshima (נשימה)** — the Hebrew AI coach that helps smokers quit,
+with a pilot sign-up form and an entry link to Hila, the pregnancy track. Static,
+responsive, RTL, no build step.
 
 ## Files
 - `index.html` — the page (Hebrew, RTL)
@@ -17,7 +18,7 @@ python3 -m http.server 8000
 ```
 
 ## Set the live chat link (most important)
-The hero and every "דברי עם הילה" button send her straight to your live chat — that's the
+The hero and every "לדבר עם נשימה" button open the live chat — that's the
 immediate-help path. Until you set it, those buttons fall back to the sign-up form. To turn them on:
 
 1. Open `script.js`.
@@ -37,11 +38,11 @@ store anything). To actually receive sign-ups:
    `https://formspree.io/f/your-form-id` with your real endpoint.
 
 That's it — submissions will email you and the page shows the success state automatically.
-Fields sent: `name`, `contact`, `pregnancy_week`, `message`, `consent`.
+Fields sent: `name`, `contact`, `cigarettes_per_day`, `message`, `consent`.
 
 ### Prefer a Google Form instead?
 Replace the `<form>...</form>` block with an `<iframe src="YOUR_GOOGLE_FORM/viewform?embedded=true">`,
-or link the "הצטרפי לפיילוט" buttons (`href="#signup"`) directly to the Google Form URL.
+or link the "להצטרף לתוכנית" buttons (`href="#signup"`) directly to the Google Form URL.
 
 ## Deploy (free)
 Any static host works — the whole folder is the site:
@@ -55,7 +56,7 @@ No server, database, or build required.
 - **Copy/text:** all Hebrew copy lives directly in `index.html`.
 - **Team:** the two `.member` cards in the `#team` section. Swap the initials avatars for
   real photos by replacing the `<div class="avatar ...">` with `<img class="avatar" src="...">`.
-- **Colors:** the palette is at the top of `styles.css` under `:root` (cream / sage / blush).
+- **Colors:** the palette is at the top of `styles.css` under `:root` (warm cream + teal accents).
 - **Pilot details:** dates and numbers are in the `#pilot` section.
 
 ## Notes
