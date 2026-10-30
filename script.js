@@ -1,8 +1,8 @@
-/* הילה / Hila — interactions */
+/* נשימה / Neshima — interactions */
 (function () {
   'use strict';
 
-  /* ---- Chat link: the live Hila agent (web app) ---- */
+  /* ---- Chat link: the live coach (web app) ---- */
   var CHAT_URL = 'https://hila.neshimacare.co.il';
   (function wireChat() {
     var ready = CHAT_URL && CHAT_URL.indexOf('PASTE_YOUR') === -1;
@@ -82,7 +82,7 @@
     var btn = form.querySelector('button[type="submit"]');
     var original = btn.textContent;
     btn.disabled = true;
-    btn.textContent = 'שולחת…';
+    btn.textContent = 'שולחים…';
 
     var endpoint = form.getAttribute('action');
     var notConfigured = !endpoint || endpoint.indexOf('your-form-id') !== -1;
@@ -95,7 +95,7 @@
 
     // If the Formspree endpoint isn't wired yet, succeed gracefully (demo mode).
     if (notConfigured) {
-      console.warn('[הילה] טופס לא מחובר עדיין — החליפי את action ב-Formspree endpoint.');
+      console.warn('[נשימה] טופס לא מחובר עדיין — יש להחליף את action ב-Formspree endpoint.');
       setTimeout(showSuccess, 600);
       return;
     }
