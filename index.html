@@ -206,8 +206,13 @@
             <p class="lead">השאירו פרטים ונחזור אליכם באופן אישי ודיסקרטי <strong>תוך 24 שעות</strong>. אין שום התחייבות — רק שיחה ראשונה. ורוצים לדבר כבר עכשיו? <a href="#" class="js-chat">נשימה כאן בשבילכם</a>.</p>
           </div>
 
-          <!-- Swap action with your Formspree endpoint: https://formspree.io/f/XXXXXXXX -->
-          <form id="signupForm" class="form" action="https://formspree.io/f/your-form-id" method="POST" novalidate>
+          <form id="signupForm" class="form" action="https://hila.neshimacare.co.il/api/pilot-signup" method="POST" novalidate>
+            <!-- Honeypot: humans never see or fill this; the server silently drops submissions that do. -->
+            <div class="hp-field" aria-hidden="true">
+              <label for="website">אתר</label>
+              <input type="text" id="website" name="website" autocomplete="off" tabindex="-1" />
+            </div>
+
             <div class="field">
               <label for="name">שם פרטי</label>
               <input type="text" id="name" name="name" autocomplete="given-name" required placeholder="איך לקרוא לך?" />
