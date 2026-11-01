@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f1ea" />
+  <title>מה סוג העישון שלך? — נשימה</title>
+  <meta name="description" content="חמש שאלות, דקה אחת, בלי שיפוט — גלו מה סוג העישון שלכם וקבלו תובנה אישית מנשימה." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="מה סוג העישון שלך? — נשימה" />
+  <meta property="og:description" content="חמש שאלות, דקה אחת, בלי שיפוט. בסוף מחכה לך תובנה אישית." />
+  <meta property="og:locale" content="he_IL" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== Header (same shell as index.html) ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="/" class="brand" aria-label="נשימה — דף הבית">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <use href="#logo-mark"></use>
+        </svg>
+        <span class="brand-name">נשימה</span>
+      </a>
+
+      <nav class="nav" aria-label="ניווט ראשי">
+        <a href="/#mission">המשימה</a>
+        <a href="/#how">איך זה עובד</a>
+        <a href="/#pilot">התוכנית</a>
+        <a href="/#team">הצוות</a>
+      </nav>
+
+      <a href="#" class="btn btn-primary btn-sm nav-cta js-chat">לדבר עם נשימה</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="פתיחת תפריט" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="ניווט נייד">
+      <a href="/#mission">המשימה</a>
+      <a href="/#how">איך זה עובד</a>
+      <a href="/#pilot">התוכנית</a>
+      <a href="/#team">הצוות</a>
+      <a href="#" class="btn btn-primary js-chat">לדבר עם נשימה</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="section quiz-section">
+      <div class="container">
+        <div class="quiz-wrap">
+          <div class="quiz-card" id="quizApp" aria-live="polite">
+            <noscript>
+              <p>כדי לענות על השאלון צריך לאפשר JavaScript בדפדפן.
+                 אפשר גם פשוט <a href="/">לחזור לדף הבית</a> ולדבר עם נשימה ישירות.</p>
+            </noscript>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer (same shell as index.html) ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true"><use href="#logo-mark"></use></svg>
+        <span class="brand-name">נשימה</span>
+      </div>
+      <p class="footer-tag">ליווי AI אישי להפסקת עישון · בעברית, בלי שיפוט.</p>
+      <p class="footer-fine">© 2026 נשימה. כל הזכויות שמורות. · נשימה אינה תחליף לייעוץ רפואי. במצב מצוקה פנו לעזרה: ער"ן 1201.</p>
+    </div>
+  </footer>
+
+  <!-- ===== Inline SVG defs (logo) ===== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="logo-mark" viewBox="0 0 48 48">
+        <path d="M24 6c5 6 5 10 1.5 13.5C22 23 21 27 24 31"
+              fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <path d="M11 26c4-3 9-3 13 0 4 3 9 3 13 0"
+              fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+        <path d="M13 35c3.5-2.5 7.5-2.5 11 0 3.5 2.5 7.5 2.5 11 0"
+              fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <script src="quiz.js"></script>
+</body>
+</html>
