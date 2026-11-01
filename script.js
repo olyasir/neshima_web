@@ -59,6 +59,20 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
+  /* ---- Quit-timing chips: optional single-select, tap the chosen chip again to clear ---- */
+  var chipsWrap = document.getElementById('quitTimingChips');
+  var quitTimingInput = document.getElementById('quitTiming');
+  chipsWrap.querySelectorAll('.chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var wasSelected = chip.getAttribute('aria-pressed') === 'true';
+      chipsWrap.querySelectorAll('.chip').forEach(function (c) {
+        c.setAttribute('aria-pressed', 'false');
+      });
+      if (!wasSelected) chip.setAttribute('aria-pressed', 'true');
+      quitTimingInput.value = wasSelected ? '' : chip.getAttribute('data-value');
+    });
+  });
+
   /* ---- Signup form (async JSON submit to the coach-app pilot endpoint) ---- */
   var form = document.getElementById('signupForm');
   var status = document.getElementById('formStatus');
@@ -115,6 +129,8 @@
       consent: true, // checkValidity above guarantees the required checkbox is ticked
       source: 'landing'
     };
+    var quitTiming = data.get('quit_timing');
+    if (quitTiming) payload.quit_timing = quitTiming;
 
     fetch(endpoint, {
       method: 'POST',
