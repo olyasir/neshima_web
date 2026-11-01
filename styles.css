@@ -250,6 +250,8 @@ a { color: inherit; text-decoration: none; }
 }
 .signup-card .section-head { margin-bottom: 34px; }
 .form { display: flex; flex-direction: column; gap: 20px; }
+/* Honeypot: moved off-screen rather than display:none, which naive bots detect. */
+.hp-field { position: absolute; inset-inline-start: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .field { display: flex; flex-direction: column; gap: 7px; }
 .field-row { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 18px; }
 .field label { font-weight: 600; font-size: 0.98rem; color: var(--ink); }

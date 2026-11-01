@@ -59,7 +59,7 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---- Signup form (Formspree-style async submit) ---- */
+  /* ---- Signup form (async JSON submit to the coach-app pilot endpoint) ---- */
   var form = document.getElementById('signupForm');
   var status = document.getElementById('formStatus');
   var success = document.getElementById('formSuccess');
@@ -84,26 +84,42 @@
     btn.disabled = true;
     btn.textContent = 'שולחים…';
 
-    var endpoint = form.getAttribute('action');
-    var notConfigured = !endpoint || endpoint.indexOf('your-form-id') !== -1;
-
     var showSuccess = function () {
       form.hidden = true;
       success.hidden = false;
       success.scrollIntoView({ behavior: 'smooth', block: 'center' });
     };
 
-    // If the Formspree endpoint isn't wired yet, succeed gracefully (demo mode).
-    if (notConfigured) {
-      console.warn('[נשימה] טופס לא מחובר עדיין — יש להחליף את action ב-Formspree endpoint.');
-      setTimeout(showSuccess, 600);
+    var showError = function () {
+      btn.disabled = false;
+      btn.textContent = original;
+      setStatus('אופס, משהו השתבש בשליחה. אפשר לנסות שוב או לכתוב לנו ישירות.', true);
+    };
+
+    // A missing or placeholder action is a configuration bug: fail visibly,
+    // never pretend the submission worked.
+    var endpoint = form.getAttribute('action');
+    if (!endpoint || endpoint.indexOf('your-form-id') !== -1 || endpoint.indexOf('formspree') !== -1) {
+      console.error('[נשימה] form action is not configured');
+      showError();
       return;
     }
 
+    var data = new FormData(form);
+    var payload = {
+      name: data.get('name') || '',
+      contact: data.get('contact') || '',
+      cigarettes_per_day: data.get('cigarettes_per_day') || '',
+      message: data.get('message') || '',
+      website: data.get('website') || '',
+      consent: true, // checkValidity above guarantees the required checkbox is ticked
+      source: 'landing'
+    };
+
     fetch(endpoint, {
       method: 'POST',
-      body: new FormData(form),
-      headers: { Accept: 'application/json' }
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload)
     })
       .then(function (res) {
         if (res.ok) {
@@ -112,10 +128,6 @@
           throw new Error('bad status');
         }
       })
-      .catch(function () {
-        btn.disabled = false;
-        btn.textContent = original;
-        setStatus('אופס, משהו השתבש בשליחה. אפשר לנסות שוב או לכתוב לנו ישירות.', true);
-      });
+      .catch(showError);
   });
 })();
