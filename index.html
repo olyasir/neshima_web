@@ -229,6 +229,17 @@
               </div>
             </div>
 
+            <div class="field" role="group" aria-labelledby="quitTimingLabel">
+              <span class="field-label" id="quitTimingLabel">מתי מתאים לך להפסיק לעשן? <span class="opt">(לא חובה)</span></span>
+              <div class="chips" id="quitTimingChips">
+                <button type="button" class="chip" data-value="this_week" aria-pressed="false">השבוע</button>
+                <button type="button" class="chip" data-value="this_month" aria-pressed="false">בחודש הקרוב</button>
+                <button type="button" class="chip" data-value="someday" aria-pressed="false">מתישהו, עוד לא קבעתי</button>
+                <button type="button" class="chip" data-value="already_quit" aria-pressed="false">כבר הפסקתי</button>
+              </div>
+              <input type="hidden" name="quit_timing" id="quitTiming" value="" />
+            </div>
+
             <div class="field">
               <label for="message">משהו שתרצו לספר לנו? <span class="opt">(לא חובה)</span></label>
               <textarea id="message" name="message" rows="3" placeholder="אפשר לכתוב כל מה שעל הלב — זה נשאר בינינו."></textarea>
