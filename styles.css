@@ -254,8 +254,19 @@ a { color: inherit; text-decoration: none; }
 .hp-field { position: absolute; inset-inline-start: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .field { display: flex; flex-direction: column; gap: 7px; }
 .field-row { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 18px; }
-.field label { font-weight: 600; font-size: 0.98rem; color: var(--ink); }
-.field label .opt { font-weight: 400; color: var(--ink-soft); font-size: 0.86rem; }
+.field label, .field .field-label { font-weight: 600; font-size: 0.98rem; color: var(--ink); }
+.field label .opt, .field .field-label .opt { font-weight: 400; color: var(--ink-soft); font-size: 0.86rem; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  font-family: var(--sans); font-size: 0.98rem; color: var(--ink);
+  background: var(--cream); border: 1.5px solid var(--line); border-radius: 999px;
+  padding: 9px 16px; cursor: pointer;
+  transition: border-color .2s, background .2s, color .2s, box-shadow .2s;
+}
+.chip:hover { border-color: var(--teal); color: var(--teal-deep); }
+.chip:focus-visible { outline: none; border-color: var(--teal); box-shadow: 0 0 0 4px rgba(20,184,166,.15); }
+.chip[aria-pressed="true"] { background: var(--teal-deep); border-color: var(--teal-deep); color: #fff; font-weight: 600; }
 .field input, .field textarea {
   font-family: var(--sans); font-size: 1.02rem; color: var(--ink);
   background: var(--cream); border: 1.5px solid var(--line); border-radius: 14px;
