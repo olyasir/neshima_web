@@ -196,6 +196,18 @@ a { color: inherit; text-decoration: none; }
 .bubble.typing span:nth-child(2){animation-delay:.2s} .bubble.typing span:nth-child(3){animation-delay:.4s}
 @keyframes blink { 0%,60%,100%{opacity:.25; transform:translateY(0)} 30%{opacity:.9; transform:translateY(-3px)} }
 
+/* SOS preview demo: the phone mock is interactive, so it must not float under taps. */
+.phone.demo { animation: none; scroll-margin-top: 90px; }
+.demo-screen { height: 480px; overflow-y: auto; scrollbar-width: thin; }
+.demo-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.demo-chips .chip { font-size: 0.9rem; padding: 8px 14px; }
+.demo-chips .chip:disabled { cursor: default; }
+.demo-chips .chip:disabled[aria-pressed="false"] { opacity: 0.45; }
+.demo-end { margin-top: 14px; padding: 14px; background: var(--cream-2); border-radius: 16px; font-size: 0.92rem; line-height: 1.55; }
+.demo-end p { margin-bottom: 12px; }
+.demo-end-cta { display: flex; flex-wrap: wrap; gap: 8px; }
+.demo-end-cta .btn { flex: 1 1 auto; }
+
 /* ---------- Trust strip ---------- */
 .strip { background: var(--ink); color: #f4ece2; padding: 30px 0; }
 .strip-inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
@@ -350,8 +362,8 @@ a { color: inherit; text-decoration: none; }
    ========================================================= */
 @media (max-width: 940px) {
   .hero-inner { grid-template-columns: 1fr; gap: 36px; }
-  .hero-art { order: -1; }
-  .phone { width: 250px; }
+  /* The demo stays below the hero copy: read the promise first, then try it. */
+  .phone { width: 300px; }
   .pilot-inner { grid-template-columns: 1fr; gap: 36px; }
   .cards { grid-template-columns: repeat(2, 1fr); }
 }
