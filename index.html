@@ -67,30 +67,36 @@
       </div>
       <div class="container hero-inner">
         <div class="hero-copy reveal">
-          <span class="eyebrow">ליווי AI לגמילה מעישון</span>
-          <h1>קובעים תאריך להפסיק.<br />את הרגעים הקשים עוברים יחד.</h1>
+          <span class="eyebrow">מאמנת AI לגמילה מעישון, בעברית</span>
+          <h1>בדיוק ברגע שהכי בא לעשן — יש עם מי לדבר.</h1>
           <p class="hero-sub">
-            בוחרים יום בשבוע הקרוב — ומהרגע הזה נשימה איתכם: מאמנת AI בעברית,
-            בלי שיפוט ובלי בושה, שזמינה בדיוק כשהדחף מתעורר ועוזרת לעבור אותו. לבד, אבל לא לבד.
+            נשימה היא מאמנת AI בעברית, פרטית לגמרי וזמינה 24/7 — בלי שיפוט, בלי בושה ובלי הטפות. שיחה אחת שעוזרת לעבור את גל החשק, ולומדת מה עוזר לך לפעם הבאה.
           </p>
           <div class="hero-cta">
-            <a href="#signup" class="btn btn-primary btn-lg">לקבוע תאריך ולהצטרף</a>
-            <a href="/quiz.html" class="btn btn-ghost btn-lg">מה סוג העישון שלך?</a>
+            <a href="#sosDemo" class="btn btn-primary btn-lg" id="sosDemoCta">לנסות רגע SOS לדוגמה</a>
+            <a href="#signup" class="btn btn-ghost btn-lg">להצטרף לפיילוט</a>
           </div>
-          <p class="hero-note">רוצים קודם להרגיש את זה? <a href="#" class="js-chat">אפשר לדבר עם נשימה כבר עכשיו</a> — חינם, פרטי ובלי המתנה.</p>
+          <p class="hero-note"><a href="/quiz.html">אפשר גם לבדוק מה סוג העישון שלך ←</a></p>
         </div>
 
-        <div class="hero-art reveal" aria-hidden="true">
-          <div class="phone">
-            <div class="phone-screen">
+        <div class="hero-art reveal">
+          <div class="phone demo" id="sosDemo" role="group" aria-label="הדגמת שיחת SOS">
+            <div class="phone-screen demo-screen">
               <div class="chat-head">
                 <span class="chat-dot"></span> נשימה
               </div>
-              <div class="bubbles">
-                <div class="bubble bot">היי, אני כאן 💛 מה עובר עליך עכשיו?</div>
-                <div class="bubble me">בא לי סיגריה, היה לי יום קשה</div>
-                <div class="bubble bot">הגיוני לגמרי שאחרי יום כזה הגוף מחפש הקלה. רוצה שנעבור על הרגע הזה יחד?</div>
-                <div class="bubble me typing"><span></span><span></span><span></span></div>
+              <div class="bubbles" id="demoBubbles" aria-live="polite">
+                <!-- Static fallback when JS is off; script.js replaces it with the tap-through demo. -->
+                <div class="bubble bot">רגע של חשק? בדיוק בשביל זה אני כאן. איפה זה תופס אותך עכשיו?</div>
+                <div class="demo-chips"><span class="chip" aria-pressed="true">בבית, אחרי ארוחה</span></div>
+                <div class="bubble bot">נושמים יחד: שאיפה איטית ל־4 שניות, עצירה קצרה, ונשיפה ארוכה ל־6. עוד פעמיים כאלה. רוב גלי החשק חולפים בלי לעשן — הם עולים, מגיעים לשיא, ויורדים.</div>
+              </div>
+              <div class="demo-end" id="demoEnd" hidden>
+                <p>כשמצטרפים, בוחרים תאריך הפסקה ומתאמנים על רגע ה־SOS עוד לפניו — כדי שברגע האמיתי הכפתור כבר יהיה מוכן.</p>
+                <div class="demo-end-cta">
+                  <a href="#signup" class="btn btn-primary btn-sm">להצטרף לפיילוט</a>
+                  <a href="/quiz.html" class="btn btn-ghost btn-sm">מה סוג העישון שלך?</a>
+                </div>
               </div>
             </div>
           </div>
