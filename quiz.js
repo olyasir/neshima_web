@@ -1,6 +1,6 @@
 /* נשימה / Neshima — quiz funnel (quiz.html)
    All copy lives in the QUIZ config below, keyed by the stored keys the
-   backend validates (PRO-2 spec) — copy edits touch one place. */
+   backend validates (PRO-33 spec) — copy edits touch one place. */
 (function () {
   'use strict';
 
@@ -43,7 +43,7 @@
   var QUIZ = {
     intro: {
       title: 'מה סוג העישון שלך?',
-      sub: 'חמש שאלות, דקה אחת, בלי שיפוט. בסוף מחכה לך תובנה אישית.',
+      sub: 'שש שאלות, דקה אחת, בלי שיפוט. בסוף מחכה לך פרופיל אישי.',
       start: 'להתחיל'
     },
     questions: [
@@ -64,7 +64,17 @@
           { key: 'stress', label: 'לחץ — הסיגריה היא הדרך שלי להירגע' },
           { key: 'habit', label: 'הרגל — זה פשוט חלק מהיום שלי (קפה, נהיגה, הפסקות)' },
           { key: 'social', label: 'חברה — כשמעשנים סביבי, קשה לא להצטרף' },
-          { key: 'waves', label: 'חשק — גלים עזים שמגיעים פתאום' }
+          { key: 'reward', label: 'פינוק — זה הפרס שלי, רגע קטן שכולו שלי' }
+        ]
+      },
+      {
+        key: 'hardest_cig',
+        text: 'איזו סיגריה הכי קשה לוותר עליה?',
+        options: [
+          { key: 'first_morning', label: 'הראשונה של הבוקר, עם הקפה' },
+          { key: 'after_hard_moment', label: 'זו שאחרי רגע קשה או עצבים' },
+          { key: 'social_night', label: 'זו של הבילוי — עם חברים, בערב בחוץ' },
+          { key: 'evening_treat', label: 'זו של סוף היום — השקט שמגיע לך' }
         ]
       },
       {
@@ -101,25 +111,59 @@
       }
     ],
     result: {
-      eyebrow: 'סוג העישון שלך',
+      eyebrow: 'פרופיל העישון שלך',
       types: {
         stress: {
           title: 'עישון של לחץ',
-          body: 'אצלך הסיגריה היא לא סתם הרגל — היא דרך להתמודד. כשהלחץ עולה, היא ההפסקה שמותר לקחת. לכן גמילה שמתעלמת מהלחץ לא מחזיקה אצלך מעמד. נשימה לומדת לזהות איתך את הרגעים האלה, ועוזרת למצוא דרכים אחרות לפרוק — בדיוק כשזה קורה, לא ביום שאחרי.'
+          essence: 'הסיגריה שלך היא שסתום לחץ — היא עובדת בדיוק ברגעים הקשים.',
+          moment: 'הרגע שבו הלחץ עולה',
+          techniques: [
+            { name: 'רגע של עצירה', text: 'כשהלחץ עולה, לעצור שנייה אחת לפני שמדליקים. עצם העצירה מחזירה שליטה.' },
+            { name: 'לשנות את הסיטואציה', text: 'לצאת מהחדר, להרחיק את החפיסה, לשתות משהו קר. חשק נחלש כשהטריגר רחוק.' },
+            { name: 'לרכוב על הגל', text: 'רוב גלי החשק חולפים בלי לעשן. נשימה איטית עוזרת לעבור אותם, גל אחרי גל.' }
+          ]
         },
         habit: {
           title: 'עישון של הרגל',
-          body: 'הסיגריה שלך תפורה לתוך היום — קפה, נהיגה, הפסקה בעבודה — עד שהיא כמעט מדליקה את עצמה. החדשות הטובות: הרגל שנבנה אפשר גם לפרק, חוליה אחר חוליה. נשימה עוזרת לך למפות את הרגעים האלה ולבנות להם גרסה חדשה — בלי להילחם בכל היום שלך בבת אחת.'
+          essence: 'הסיגריה שלך תפורה לתוך היום — קפה, נהיגה, הפסקות.',
+          moment: 'הרגע האוטומטי — קפה, הפסקה, נהיגה',
+          techniques: [
+            { name: 'למפות את הקבועות', text: 'לרשום את הסיגריות שבאות לבד (קפה, נהיגה, הפסקה). הרגל שרואים אפשר לפרק.' },
+            { name: 'לשבור את הצמדים', text: 'לשנות פרט אחד בטקס: קפה במקום אחר, הפסקה בצד השני של הבניין.' },
+            { name: 'להרחיק את הגירויים', text: 'חפיסה לא בכיס, מצת לא על השולחן. מה שרחוק מהיד רחוק מהפה.' }
+          ]
         },
         social: {
           title: 'עישון חברתי',
-          body: 'אצלך העישון חי בין אנשים — בבילויים, עם אלכוהול, בהפסקות משותפות. להפסיק מרגיש כמו לצאת מהחבורה. נשימה עוזרת לך להתכונן מראש לרגעים האלה ולהישאר בפנים — בלי סיגריה ובלי להרגיש בחוץ.'
+          essence: 'הסיגריה שלך חיה בין אנשים — בבילויים ובהפסקות משותפות.',
+          moment: 'הרגע שבו כולם יוצאים לעשן',
+          techniques: [
+            { name: 'משפט מוכן מראש', text: '«אני בניסיון הפסקה, אל תציעו לי» — כשיש תשובה מוכנה, הרגע הרבה פחות מביך.' },
+            { name: 'לתכנן את הבילוי', text: 'לדעת מראש מתי כולם יוצאים לעשן, ולהחליט מה עושים באותן דקות במקום.' },
+            { name: 'לגייס אדם אחד', text: 'חבר או בת זוג שיודעים ותומכים שווים יותר מכוח רצון כפול.' }
+          ]
         },
-        waves: {
-          title: 'גלי חשק',
-          body: 'אצלך החשק לא מבקש רשות — הוא מגיע פתאום וחזק, ומרגיש כאילו יישאר לנצח. אבל גלים כאלה חולפים, גם כשברגע עצמו זה לא מרגיש ככה. נשימה זמינה בדיוק ברגעים האלה, 24/7, ועוזרת לך לעבור את הגל — נשימה אחת בכל פעם.'
+        reward: {
+          title: 'עישון של פינוק',
+          essence: 'הסיגריה שלך היא הפרס — הרגע הקטן שמגיע לך.',
+          moment: 'סוף היום, כשמגיע לך משהו טוב',
+          techniques: [
+            { name: 'להחליף את הפרס, לא לוותר עליו', text: 'ההפסקה, הקפה הטוב, הרגע באוויר נשארים. רק הסיגריה מתחלפת.' },
+            { name: 'טקס ערב חדש', text: 'משהו קטן שמחכים לו בסוף היום, שהוא באמת פינוק ולא פשרה.' },
+            { name: 'לשמור על ההפסקות', text: 'מותר לקחת הפסקה בלי סיגריה. ההפסקה היא הצורך האמיתי — לא העשן.' }
+          ]
         }
       },
+      secondaryChip: 'וגם: ',
+      mixTwo: 'רוב האנשים הם שילוב של כמה סוגים — זה השילוב שלך.',
+      mixSingle: 'אצלך התמונה חדה במיוחד — סוג אחד מוביל בבירור.',
+      techniquesHeader: 'מה עובד לסוג שלך',
+      secondarySubLabel: function (title) { return 'ובשביל הצד של ' + title + ':'; },
+      bridgeHeader: 'ולרגע הקריטי עצמו',
+      bridgeBody: function (moment) {
+        return 'לסוג שלך הרגע הקריטי הוא ' + moment + '. בדיוק בשביל זה בנינו את נשימה — שיחה אמיתית בדיוק ברגע הזה, 24/7, בלי שיפוט.';
+      },
+      shareNudge: 'מזהים מישהו בסוג הזה? שלחו לו את השאלון.',
       cravingLines: {
         morning: 'הבוקר הוא נקודת ההתחלה שלך: לנצח את הסיגריה הראשונה זה לשנות את כל היום.',
         after_meals: 'הרגעים שאחרי האוכל הם ההזדמנות שלך: טקס חדש במקום טקס ישן.',
@@ -137,10 +181,10 @@
       cta: 'לדבר עם נשימה עכשיו'
     },
     email: {
-      header: 'רוצים גישה מוקדמת לתוכנית המלאה?',
+      header: 'רוצים את התוכנית המלאה, מותאמת לסוג שלך?',
       placeholder: 'המייל שלך',
       button: 'לשמור לי מקום',
-      micro: 'נשתמש במייל רק כדי לעדכן על הגישה המוקדמת. בלי ספאם.',
+      micro: 'נשתמש במייל רק כדי לעדכן על הגישה המוקדמת — שכבר תותאם לסוג שלך. בלי ספאם.',
       success: 'המקום שלך שמור 💛 נהיה בקשר.',
       error: 'אופס, משהו השתבש בשליחה. אפשר לנסות שוב.'
     },
@@ -162,17 +206,62 @@
     return 'q-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
   }
 
-  function resultType() {
-    return answers.obstacle; // Q2 key doubles as the type key (spec table)
+  /* ---- Scoring (PRO-33 spec): weights 2/2/1, secondary only at score >= 2 ---- */
+  var HARDEST_TO_TYPE = {
+    first_morning: 'habit',
+    after_hard_moment: 'stress',
+    social_night: 'social',
+    evening_treat: 'reward'
+  };
+  var CRAVING_TO_TYPE = {
+    morning: 'habit',
+    after_meals: 'habit',
+    evening: 'reward',
+    stress_moments: 'stress',
+    with_friends: 'social'
+  };
+  var TIE_ORDER = ['stress', 'reward', 'habit', 'social'];
+
+  // Pure: answers -> { primary, secondary|null }. Tie-break: Q2's vote, then
+  // hardest_cig's vote, then the fixed order above. Timing alone (score 1)
+  // never makes a secondary.
+  function scoreProfile(a) {
+    var scores = { stress: 0, habit: 0, social: 0, reward: 0 };
+    scores[a.obstacle] += 2;
+    scores[HARDEST_TO_TYPE[a.hardest_cig]] += 2;
+    scores[CRAVING_TO_TYPE[a.craving_time]] += 1;
+
+    function pick(excluded) {
+      var best = -1;
+      TIE_ORDER.forEach(function (t) {
+        if (t !== excluded && scores[t] > best) best = scores[t];
+      });
+      var tied = TIE_ORDER.filter(function (t) {
+        return t !== excluded && scores[t] === best;
+      });
+      if (tied.indexOf(a.obstacle) !== -1) return a.obstacle;
+      if (tied.indexOf(HARDEST_TO_TYPE[a.hardest_cig]) !== -1) return HARDEST_TO_TYPE[a.hardest_cig];
+      return tied[0];
+    }
+
+    var primary = pick(null);
+    var secondary = pick(primary);
+    return { primary: primary, secondary: scores[secondary] >= 2 ? secondary : null };
+  }
+
+  function profile() {
+    return scoreProfile(answers);
   }
 
   function postResponse(email) {
+    var p = profile();
     var payload = {
       quiz_id: quizId,
       answers: answers,
-      result_type: resultType(),
+      result_type: p.primary,
       source: 'quiz'
     };
+    if (p.secondary) payload.result_secondary = p.secondary;
     if (email) payload.email = email;
     return fetch(ENDPOINT, {
       method: 'POST',
@@ -251,16 +340,49 @@
     focusHeading();
   }
 
+  function techniquesHtml(items) {
+    var html = '';
+    items.forEach(function (t) {
+      html += '<li class="quiz-tech"><strong>' + t.name + '</strong> — ' + t.text + '</li>';
+    });
+    return html;
+  }
+
   function renderResult() {
-    var type = QUIZ.result.types[resultType()];
+    var p = profile();
+    var primary = QUIZ.result.types[p.primary];
+    var secondary = p.secondary ? QUIZ.result.types[p.secondary] : null;
     var cravingLine = QUIZ.result.cravingLines[answers.craving_time];
     var reassuranceLine = QUIZ.result.reassuranceLines[answers.concern];
 
+    var cardHtml =
+      '<div class="quiz-profile-card">' +
+      '<p class="quiz-profile-brand" aria-hidden="true">' +
+      '<svg class="brand-mark" viewBox="0 0 48 48"><use href="#logo-mark"></use></svg>' +
+      '<span>נשימה</span>' +
+      '</p>' +
+      '<p class="eyebrow">' + QUIZ.result.eyebrow + '</p>' +
+      '<h2 class="quiz-title quiz-profile-title" tabindex="-1" data-focus>' + primary.title + '</h2>' +
+      (secondary
+        ? '<p class="quiz-chip">' + QUIZ.result.secondaryChip + secondary.title + '</p>'
+        : '') +
+      '<p class="quiz-mix">' + (secondary ? QUIZ.result.mixTwo : QUIZ.result.mixSingle) + '</p>' +
+      '<p class="quiz-essence">' + primary.essence + '</p>' +
+      (secondary ? '<p class="quiz-essence">' + secondary.essence + '</p>' : '') +
+      '<h3 class="quiz-tech-header">' + QUIZ.result.techniquesHeader + '</h3>' +
+      '<ul class="quiz-tech-list">' + techniquesHtml(primary.techniques) + '</ul>' +
+      (secondary
+        ? '<p class="quiz-tech-sublabel">' + QUIZ.result.secondarySubLabel(secondary.title) + '</p>' +
+          '<ul class="quiz-tech-list">' + techniquesHtml(secondary.techniques.slice(0, 2)) + '</ul>'
+        : '') +
+      '<h3 class="quiz-bridge-header">' + QUIZ.result.bridgeHeader + '</h3>' +
+      '<p class="quiz-bridge-body">' + QUIZ.result.bridgeBody(primary.moment) + '</p>' +
+      '</div>';
+
     app.innerHTML =
       '<div class="quiz-result">' +
-      '<p class="eyebrow">' + QUIZ.result.eyebrow + '</p>' +
-      '<h2 class="quiz-title" tabindex="-1" data-focus>' + type.title + '</h2>' +
-      '<p class="quiz-body">' + type.body + '</p>' +
+      cardHtml +
+      '<p class="quiz-share">' + QUIZ.result.shareNudge + '</p>' +
       '<p class="quiz-line">' + cravingLine + '</p>' +
       '<p class="quiz-line">' + reassuranceLine + '</p>' +
       '<div class="quiz-email">' +
@@ -339,17 +461,20 @@
   // A filled honeypot still posts (the backend answers 200 and stores nothing),
   // so bots see nothing special.
   function postHoneypot(honeypot, email) {
+    var p = profile();
+    var payload = {
+      quiz_id: quizId,
+      answers: answers,
+      result_type: p.primary,
+      source: 'quiz',
+      email: email,
+      website: honeypot
+    };
+    if (p.secondary) payload.result_secondary = p.secondary;
     return fetch(ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        quiz_id: quizId,
-        answers: answers,
-        result_type: resultType(),
-        source: 'quiz',
-        email: email,
-        website: honeypot
-      })
+      body: JSON.stringify(payload)
     });
   }
 
