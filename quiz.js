@@ -4,7 +4,9 @@
 (function () {
   'use strict';
 
-  var CHAT_URL = 'https://hila.neshimacare.co.il';
+  // CHAT_URL is where visitors go (the אור app); ENDPOINT stays on the hila
+  // backend, which hosts the quiz-response store.
+  var CHAT_URL = 'https://app.neshimacare.co.il';
   var ENDPOINT = 'https://hila.neshimacare.co.il/api/quiz-response';
 
   /* ---- Shared shell (same behaviour as script.js on index.html) ---- */
