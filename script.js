@@ -2,8 +2,8 @@
 (function () {
   'use strict';
 
-  /* ---- Chat link: the live coach (web app) ---- */
-  var CHAT_URL = 'https://hila.neshimacare.co.il';
+  /* ---- Chat link: the live coach (the אור app; hila.* is the pregnancy track only) ---- */
+  var CHAT_URL = 'https://app.neshimacare.co.il';
   (function wireChat() {
     var ready = CHAT_URL && CHAT_URL.indexOf('PASTE_YOUR') === -1;
     document.querySelectorAll('a.js-chat').forEach(function (a) {
