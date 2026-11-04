@@ -434,6 +434,34 @@ a { color: inherit; text-decoration: none; }
 .quiz-body { font-size: 1.1rem; line-height: 1.75; color: #4f4955; margin-bottom: 18px; }
 .quiz-line { font-size: 1.05rem; line-height: 1.7; color: var(--ink); margin-bottom: 10px; }
 
+/* Profile card (PRO-33) — the shareable unit: compact enough to fit one
+   viewport in a 390px-wide phone screenshot, so sizes stay tighter than the
+   rest of the quiz. */
+.quiz-profile-card {
+  background: var(--cream); border: 1.5px solid var(--teal); border-radius: var(--radius);
+  padding: 20px 18px; text-align: start; margin-bottom: 18px;
+}
+.quiz-profile-brand {
+  display: flex; align-items: center; gap: 6px; margin-bottom: 10px;
+  font-weight: 700; color: var(--teal-deep); font-size: 0.9rem;
+}
+.quiz-profile-brand .brand-mark { width: 20px; height: 20px; }
+.quiz-profile-card .eyebrow { margin-bottom: 2px; }
+.quiz-profile-title { font-size: clamp(1.5rem, 4vw, 1.9rem); margin: 2px 0 8px; }
+.quiz-chip {
+  display: inline-block; padding: 3px 12px; border-radius: 999px; margin-bottom: 8px;
+  background: var(--teal-tint); color: var(--teal-deep); font-weight: 600; font-size: 0.92rem;
+}
+.quiz-mix { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 10px; }
+.quiz-essence { font-size: 1rem; line-height: 1.55; color: var(--ink); margin-bottom: 6px; }
+.quiz-tech-header, .quiz-bridge-header { font-size: 1.05rem; margin: 14px 0 8px; color: var(--teal-deep); }
+.quiz-tech-list { list-style: none; padding: 0; margin: 0 0 4px; }
+.quiz-tech { font-size: 0.95rem; line-height: 1.55; color: var(--ink); margin-bottom: 7px; }
+.quiz-tech strong { color: var(--teal-deep); }
+.quiz-tech-sublabel { font-size: 0.95rem; font-weight: 600; color: var(--ink); margin: 8px 0 6px; }
+.quiz-bridge-body { font-size: 0.95rem; line-height: 1.55; color: var(--ink); margin: 0; }
+.quiz-share { font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 16px; }
+
 .quiz-email { margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--line); }
 .quiz-email h3 { font-size: 1.3rem; margin-bottom: 14px; }
 .quiz-email-row { display: flex; gap: 12px; flex-wrap: wrap; }
