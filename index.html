@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#f6f1ea" />
-  <title>נשימה — ליווי AI אישי להפסקת עישון, בלי שיפוט</title>
-  <meta name="description" content="נשימה היא מאמנת AI בעברית שמלווה אתכם בדרך להפסיק לעשן — בלי שיפוט, פרטי לחלוטין וזמין בכל רגע." />
+  <title>נשימה — ליווי אישי למי שמפסיקים לעשן</title>
+  <meta name="description" content="ליווי אישי למי שמפסיקים לעשן. לחיצה אחת ברגע הכי קשה — ונשימה עוברת איתך את החשק, בכל שעה, בלי שיפוט. חינם, פרטי, בעברית." />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="נשימה — ליווי AI להפסקת עישון" />
-  <meta property="og:description" content="ליווי חם, פרטי וזמין 24/7 בעברית — בלי בושה, בלי שיפוט." />
+  <meta property="og:title" content="נשימה — ליווי אישי למי שמפסיקים לעשן" />
+  <meta property="og:description" content="לחיצה אחת ברגע הכי קשה, ומאמן שמכיר את הטריגרים שלך יעבור איתך את החשק, בכל שעה, בלי שיפוט." />
   <meta property="og:locale" content="he_IL" />
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -35,24 +35,26 @@
       </a>
 
       <nav class="nav" aria-label="ניווט ראשי">
-        <a href="#mission">המשימה</a>
-        <a href="#how">איך זה עובד</a>
-        <a href="#pilot">התוכנית</a>
-        <a href="#team">הצוות</a>
+        <a href="#moment">איך זה עובד</a>
+        <a href="/quiz.html">מה סוג העישון שלך</a>
+        <!-- ABOUT: enable after Nadin's OK (OLY-54)
+        <a href="#about">מי אנחנו</a>
+        -->
       </nav>
 
-      <a href="#" class="btn btn-primary btn-sm nav-cta js-chat">לדבר עם נשימה</a>
+      <a href="https://app.neshimacare.co.il" class="btn btn-primary btn-sm nav-cta js-chat">לדבר עם נשימה</a>
 
       <button class="nav-toggle" id="navToggle" aria-label="פתיחת תפריט" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
     <nav class="mobile-nav" id="mobileNav" aria-label="ניווט נייד">
-      <a href="#mission">המשימה</a>
-      <a href="#how">איך זה עובד</a>
-      <a href="#pilot">התוכנית</a>
-      <a href="#team">הצוות</a>
-      <a href="#" class="btn btn-primary js-chat">לדבר עם נשימה</a>
+      <a href="#moment">איך זה עובד</a>
+      <a href="/quiz.html">מה סוג העישון שלך</a>
+      <!-- ABOUT: enable after Nadin's OK (OLY-54)
+      <a href="#about">מי אנחנו</a>
+      -->
+      <a href="https://app.neshimacare.co.il" class="btn btn-primary js-chat">לדבר עם נשימה</a>
     </nav>
   </header>
 
@@ -67,14 +69,14 @@
       </div>
       <div class="container hero-inner">
         <div class="hero-copy reveal">
-          <span class="eyebrow">מאמנת AI לגמילה מעישון, בעברית</span>
-          <h1>בדיוק ברגע שהכי בא לעשן — יש עם מי לדבר.</h1>
+          <span class="eyebrow">עוזרת לעבור את רגע החשק, בעברית</span>
+          <h1>נשימה — ליווי אישי למי שמפסיקים לעשן.</h1>
           <p class="hero-sub">
-            נשימה היא מאמנת AI בעברית, פרטית לגמרי וזמינה 24/7 — בלי שיפוט, בלי בושה ובלי הטפות. שיחה אחת שעוזרת לעבור את גל החשק, ולומדת מה עוזר לך לפעם הבאה.
+            לחיצה אחת ברגע הכי קשה, ומאמן שמכיר את הטריגרים שלך יעבור איתך את החשק, בכל שעה, בלי שיפוט.
           </p>
           <div class="hero-cta">
-            <a href="#sosDemo" class="btn btn-primary btn-lg" id="sosDemoCta">לנסות רגע SOS לדוגמה</a>
-            <a href="#signup" class="btn btn-ghost btn-lg">להצטרף לפיילוט</a>
+            <a href="https://app.neshimacare.co.il" class="btn btn-primary btn-lg js-chat">לפתוח את נשימה עכשיו</a>
+            <a href="#sosDemo" class="btn btn-ghost btn-lg" id="sosDemoCta">לנסות רגע SOS לדוגמה</a>
           </div>
           <p class="hero-note"><a href="/quiz.html">אפשר גם לבדוק מה סוג העישון שלך ←</a></p>
         </div>
@@ -92,9 +94,9 @@
                 <div class="bubble bot">נושמים יחד: שאיפה איטית ל־4 שניות, עצירה קצרה, ונשיפה ארוכה ל־6. עוד פעמיים כאלה. רוב גלי החשק חולפים בלי לעשן — הם עולים, מגיעים לשיא, ויורדים.</div>
               </div>
               <div class="demo-end" id="demoEnd" hidden>
-                <p>כשמצטרפים, בוחרים תאריך הפסקה ומתאמנים על רגע ה־SOS עוד לפניו — כדי שברגע האמיתי הכפתור כבר יהיה מוכן.</p>
+                <p>זה היה טעימה. בפנים, נשימה כבר מכירה את הטריגרים שלך — והכפתור הזה נמצא איתך בכל רגע.</p>
                 <div class="demo-end-cta">
-                  <a href="#signup" class="btn btn-primary btn-sm">להצטרף לפיילוט</a>
+                  <a href="https://app.neshimacare.co.il" class="btn btn-primary btn-sm js-chat">לפתוח את נשימה</a>
                   <a href="/quiz.html" class="btn btn-ghost btn-sm">מה סוג העישון שלך?</a>
                 </div>
               </div>
@@ -109,166 +111,74 @@
       <div class="container strip-inner">
         <div class="strip-item"><strong>24/7</strong><span>זמינה ברגע שצריך</span></div>
         <div class="strip-item"><strong>בעברית</strong><span>בגובה העיניים, בלי שיפוט</span></div>
-        <div class="strip-item"><strong>100% פרטי</strong><span>בלי חשיפה, בלי קבוצה</span></div>
+        <div class="strip-item"><strong>חינם ופרטי</strong><span>בלי קבוצה, בלי חשיפה</span></div>
         <div class="strip-item"><strong>גם אחרי נפילה</strong><span>ממשיכים יחד, בלי אשמה</span></div>
       </div>
     </section>
 
-    <!-- ===== Mission ===== -->
-    <section class="section mission" id="mission">
-      <div class="container narrow center">
-        <span class="eyebrow reveal">המשימה שלנו</span>
-        <h2 class="reveal">אנשים שמעשנים לא צריכים עוד הטפה. מגיע להם ליווי אמיתי.</h2>
-        <p class="lead reveal">
-          רוב האנשים שמעשנים יודעים בדיוק מה הסיכון — מה שחסר להם זה לא
-          עוד אזהרה, אלא יד תומכת ברגע הקשה.
-        </p>
-        <p class="lead reveal">
-          בנינו את נשימה כדי שאיש ואישה לא יתמודדו עם זה לבד:
-          <strong>ליווי חם, פרטי וזמין תמיד</strong>, שמקשיב, זוכר,
-          והולך איתכם בקצב שלכם — גם אחרי נפילות.
-        </p>
-      </div>
-    </section>
-
-    <!-- ===== How it works / Features ===== -->
-    <section class="section how" id="how">
+    <!-- ===== The moment ===== -->
+    <section class="section moment" id="moment">
       <div class="container">
         <div class="section-head center">
-          <span class="eyebrow reveal">למה נשימה שונה</span>
-          <h2 class="reveal">לא עוד אפליקציה שמטיפה לכם מה לעשות.</h2>
-          <p class="lead reveal">נשימה לא מרצה ולא שופטת. היא מקשיבה, לומדת אתכם, ומלווה אתכם בשיטות התנהגותיות מוכחות.</p>
+          <span class="eyebrow reveal">ככה זה עובד</span>
+          <h2 class="reveal">חשק הוא גל. צריך רק לעבור אותו.</h2>
         </div>
 
-        <div class="cards">
-          <article class="card reveal">
-            <div class="card-icon">🕊️</div>
-            <h3>מקשיבה, לא מטיפה</h3>
-            <p>מבוססת על ראיון מוטיבציוני: אתם מדברים, נשימה מקשיבה ומשקפת. בלי הרצאות, בלי אשמה.</p>
+        <div class="steps">
+          <article class="step reveal">
+            <div class="step-num" aria-hidden="true">1</div>
+            <h3>החשק מגיע</h3>
+            <p>בבית אחרי ארוחה, בקפה של הבוקר, ברגע לחוץ. לחיצה אחת על הכפתור — ונשימה איתך.</p>
           </article>
-          <article class="card reveal">
-            <div class="card-icon">🧠</div>
-            <h3>לומדת בדיוק אתכם</h3>
-            <p>מנוע זיכרון אישי שבונה "מודל עישון" — מה כל סיגריה נותנת לכם — ומדייק את הליווי עם הזמן.</p>
+          <article class="step reveal">
+            <div class="step-num" aria-hidden="true">2</div>
+            <h3>עוברים אותו יחד</h3>
+            <p>נשימה מכירה את הטריגרים שלך ומציעה מה שעובד בדיוק עליך — תרגיל נשימה, הסחה, או סתם מישהו לדבר איתו. רוב גלי החשק חולפים בלי לעשן.</p>
           </article>
-          <article class="card reveal">
-            <div class="card-icon">⏰</div>
-            <h3>שם כשהדחף מגיע</h3>
-            <p>זמינה 24/7, בלי תור ובלי לקבוע מראש — בדיוק ברגע הקשה, גם ב-3 לפנות בוקר.</p>
+          <article class="step reveal">
+            <div class="step-num" aria-hidden="true">3</div>
+            <h3>כל גל שעברתם נספר</h3>
+            <p>המונה של «חשקים ששרדתי» רק עולה. גם אם הייתה מעידה — שום דבר לא מתאפס, וממשיכים מאותה נקודה.</p>
           </article>
-          <article class="card reveal">
-            <div class="card-icon">🤫</div>
-            <h3>פרטית לחלוטין</h3>
-            <p>בלי לשבת מול מטפל או קבוצה. השיחה שלכם נשארת שלכם — וזה מסיר את חסם הבושה.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card-icon">🛟</div>
-            <h3>שכבת בטיחות קלינית</h3>
-            <p>מנגנון עצמאי שמזהה רגעי מצוקה ומפנה לתמיכה אנושית ולמשאבי חירום בישראל בעת הצורך.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card-icon">🌅</div>
-            <h3>גם אחרי נפילה</h3>
-            <p>מעדתם? זה חלק מהדרך. נשימה עוזרת להבין מה קרה ולהמשיך משם — בלי אשמה ובלי לחזור לנקודת ההתחלה.</p>
-          </article>
+        </div>
+
+        <div class="cta-center reveal">
+          <a href="https://app.neshimacare.co.il" class="btn btn-primary btn-lg js-chat">לפתוח את נשימה עכשיו</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== Pilot ===== -->
-    <section class="section pilot" id="pilot">
-      <div class="container pilot-inner">
-        <div class="pilot-copy reveal">
-          <span class="eyebrow">התוכנית המלאה</span>
-          <h2>רוצים ללכת את כל הדרך — עם ליווי אישי צמוד?</h2>
-          <p class="lead">
-            מעבר לשיחה החופשית שזמינה לכם תמיד, אנחנו מלווים קבוצה ראשונה של מעשנים
-            ומעשנות בתוכנית מובנית של 12 שבועות: ליווי אישי לאורך כל הדרך, כולל
-            הרגעים הקשים שבהם הכי קל לחזור. משאירים פרטים — ואנחנו חוזרים אליכם אישית תוך 24 שעות.
-          </p>
-          <ul class="checklist">
-            <li>השיחה עם נשימה <strong>זמינה לכם כבר עכשיו</strong>, בחינם וללא הרשמה</li>
-            <li>ליווי אישי <strong>חינמי ופרטי</strong> לכל אורך הדרך</li>
-            <li>מתאים לכם אם אתם <strong>מעשנים ורוצים להפסיק</strong>, או שהפסקתם לאחרונה ורוצים תמיכה</li>
-            <li>דוברי ודוברות עברית, גיל 18+</li>
-          </ul>
-          <a href="#signup" class="btn btn-primary btn-lg">להצטרף לתוכנית</a>
-        </div>
-        <div class="pilot-stats reveal">
-          <div class="stat"><strong>עכשיו</strong><span>נשימה זמינה לכם מהרגע הזה</span></div>
-          <div class="stat"><strong>24ש׳</strong><span>ונחזור אליכם באופן אישי</span></div>
-          <div class="stat"><strong>1 מ-10</strong><span>רק כאחד מעשרה ניסיונות להפסיק מצליח לבד. בדיוק בשביל זה נבנה הליווי המתמשך.</span></div>
+    <!-- ===== Install hint ===== -->
+    <section class="install-strip reveal">
+      <div class="container install-strip-inner">
+        <p><strong>טיפ:</strong> מוסיפים את נשימה למסך הבית — וכשהחשק מגיע, הכפתור כבר שם. פותחים את <a href="https://app.neshimacare.co.il">app.neshimacare.co.il</a> בנייד ובוחרים «הוספה למסך הבית».</p>
+      </div>
+    </section>
+
+    <!-- ===== Quiz bridge ===== -->
+    <section class="section quiz-bridge">
+      <div class="container narrow center">
+        <h2 class="reveal">לא בטוחים מאיפה להתחיל?</h2>
+        <p class="lead reveal">שש שאלות קצרות — ותקבלו פרופיל אישי: איזה סוג מעשנים אתם, ומה עובד בדיוק על הסוג שלכם.</p>
+        <div class="cta-center reveal">
+          <a href="/quiz.html" class="btn btn-ghost btn-lg">מה סוג העישון שלך?</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== Signup ===== -->
-    <section class="section signup" id="signup">
-      <div class="container narrow">
-        <div class="signup-card reveal">
-          <div class="section-head center">
-            <span class="eyebrow">הצטרפות לתוכנית</span>
-            <h2>נשמח להכיר אתכם</h2>
-            <p class="lead">השאירו פרטים ונחזור אליכם באופן אישי ודיסקרטי <strong>תוך 24 שעות</strong>. אין שום התחייבות — רק שיחה ראשונה. ורוצים לדבר כבר עכשיו? <a href="#" class="js-chat">נשימה כאן בשבילכם</a>.</p>
-          </div>
-
-          <form id="signupForm" class="form" action="https://hila.neshimacare.co.il/api/pilot-signup" method="POST" novalidate>
-            <!-- Honeypot: humans never see or fill this; the server silently drops submissions that do. -->
-            <div class="hp-field" aria-hidden="true">
-              <label for="website">אתר</label>
-              <input type="text" id="website" name="website" autocomplete="off" tabindex="-1" />
-            </div>
-
-            <div class="field">
-              <label for="name">שם פרטי</label>
-              <input type="text" id="name" name="name" autocomplete="given-name" required placeholder="איך לקרוא לך?" />
-            </div>
-
-            <div class="field-row">
-              <div class="field">
-                <label for="contact">אימייל או טלפון</label>
-                <input type="text" id="contact" name="contact" required placeholder="איך הכי נוח שניצור קשר?" />
-              </div>
-              <div class="field">
-                <label for="cigarettes">כמה סיגריות ביום, בערך? <span class="opt">(לא חובה)</span></label>
-                <input type="text" id="cigarettes" name="cigarettes_per_day" inputmode="numeric" placeholder="לדוגמה: 10" />
-              </div>
-            </div>
-
-            <div class="field" role="group" aria-labelledby="quitTimingLabel">
-              <span class="field-label" id="quitTimingLabel">מתי מתאים לך להפסיק לעשן? <span class="opt">(לא חובה)</span></span>
-              <div class="chips" id="quitTimingChips">
-                <button type="button" class="chip" data-value="this_week" aria-pressed="false">השבוע</button>
-                <button type="button" class="chip" data-value="this_month" aria-pressed="false">בחודש הקרוב</button>
-                <button type="button" class="chip" data-value="someday" aria-pressed="false">מתישהו, עוד לא קבעתי</button>
-                <button type="button" class="chip" data-value="already_quit" aria-pressed="false">כבר הפסקתי</button>
-              </div>
-              <input type="hidden" name="quit_timing" id="quitTiming" value="" />
-            </div>
-
-            <div class="field">
-              <label for="message">משהו שתרצו לספר לנו? <span class="opt">(לא חובה)</span></label>
-              <textarea id="message" name="message" rows="3" placeholder="אפשר לכתוב כל מה שעל הלב — זה נשאר בינינו."></textarea>
-            </div>
-
-            <label class="consent">
-              <input type="checkbox" id="consent" name="consent" required />
-              <span>אני מאשר.ת שתיצרו איתי קשר לגבי התוכנית. הפרטים שלי נשמרים בדיסקרטיות ולא יועברו לאף גורם.</span>
-            </label>
-
-            <button type="submit" class="btn btn-primary btn-lg btn-block">שליחת בקשה להצטרף</button>
-            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-          </form>
-
-          <div class="form-success" id="formSuccess" hidden>
-            <div class="success-mark">💛</div>
-            <h3>קיבלנו! תודה שסיפרת לנו.</h3>
-            <p>נחזור אליך באופן אישי ודיסקרטי תוך 24 שעות. זה צעד אמיץ — ואנחנו כאן איתך.</p>
-            <a href="#" class="btn btn-primary js-chat" style="margin-top:18px">ועד אז — אפשר לדבר עם נשימה עכשיו</a>
-          </div>
+    <!-- ABOUT: enable after Nadin's OK (OLY-54)
+    <section class="section about" id="about">
+      <div class="container narrow center">
+        <h2 class="reveal">שתי אחיות. טכנולוגיה וקליניקה.</h2>
+        <p class="lead reveal">איבדנו את אבא שלנו לסרטן ריאות. הוא עישן כל חייו.</p>
+        <p class="lead reveal">אז בנינו את מה שלא היה לו. אולה בונה את הטכנולוגיה: ארכיטקטית AI. נדין מכירה את הגמילה מבפנים: יותר מ-15 שנה בטיפול בהתמכרויות, ויועצת לגמילה מעישון.</p>
+        <p class="lead about-emph reveal">נשימה היא מה שהיינו רוצות שיהיה לאבא שלנו.</p>
+        <div class="cta-center reveal">
+          <a href="https://app.neshimacare.co.il" class="btn btn-primary btn-lg js-chat">לפתוח את נשימה</a>
         </div>
       </div>
     </section>
+    -->
 
     <!-- ===== Hila pregnancy entry ===== -->
     <section class="hila-strip reveal">
@@ -278,48 +188,13 @@
       </div>
     </section>
 
-    <!-- ===== Team ===== -->
-    <section class="section team" id="team">
-      <div class="container">
-        <div class="section-head center">
-          <span class="eyebrow reveal">מי מאחורי נשימה</span>
-          <h2 class="reveal">שתי נשים. טכנולוגיה וקליניקה.</h2>
-          <p class="lead reveal">צירוף נדיר של שתי הדיסציפלינות שהמוצר הזה צריך — מי שבונה את הטכנולוגיה, ומי שמכירה את הגמילה מבפנים.</p>
-        </div>
-
-        <div class="team-grid">
-          <article class="member reveal">
-            <div class="avatar avatar-olya">א<span>ס</span></div>
-            <h3>אולה סירקין</h3>
-            <p class="role">מייסדת · מובילה טכנולוגית</p>
-            <p class="bio">
-              ארכיטקטית AI עם 15 שנות ניסיון בפיתוח תוכנה, 8 מהן ב-AI. בנתה תוכנה קלינית שפועלת
-              ביחידות טיפול נמרץ בבתי חולים (iMDsoft), וכיום ראש צוות פיתוח AI ב-Tether — צוות שבונה
-              בדיוק את ארכיטקטורת הסוכן והזיכרון שעליה נשען המוצר. איבדה את אביה לסרטן ריאות — בשבילה זה אישי.
-            </p>
-          </article>
-
-          <article class="member reveal">
-            <div class="avatar avatar-nadin">נ<span>י</span></div>
-            <h3>נאדין ירמילוב</h3>
-            <p class="role">מייסדת · מומחית קלינית</p>
-            <p class="bio">
-              מומחית מובילה לטיפול בהתמכרויות וגמילה מעישון, מעל 15 שנות ניסיון. יועצת לגמילה בקופת חולים מאוחדת
-              ובמוקד הלאומי של משרד הבריאות, מפתחת פרוטוקולים מבוססי-מחקר (MI, CBT, ACT) — היד שמעצבת את שיטת הליווי.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <!-- ===== Closing CTA ===== -->
     <section class="section closing">
       <div class="container narrow center reveal">
         <h2>כל מסע מתחיל בנשימה אחת.</h2>
-        <p class="lead">אם אתם מעשנים ורוצים להפסיק — בלי בושה, בקצב שלכם — נשימה כאן בשבילכם כבר עכשיו.</p>
+        <p class="lead">הגל הבא יגיע — והפעם לא תהיו בו לבד. חינם, פרטי, ומחכה לכם כבר עכשיו.</p>
         <div class="cta-center">
-          <a href="#" class="btn btn-primary btn-lg js-chat">לדבר עם נשימה עכשיו</a>
-          <a href="#signup" class="btn btn-ghost btn-lg">להצטרף לתוכנית</a>
+          <a href="https://app.neshimacare.co.il" class="btn btn-primary btn-lg js-chat">לפתוח את נשימה עכשיו</a>
         </div>
       </div>
     </section>
@@ -332,7 +207,7 @@
         <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true"><use href="#logo-mark"></use></svg>
         <span class="brand-name">נשימה</span>
       </div>
-      <p class="footer-tag">ליווי AI אישי להפסקת עישון · בעברית, בלי שיפוט.</p>
+      <p class="footer-tag">ליווי אישי להפסקת עישון · בעברית, בלי שיפוט.</p>
       <p class="footer-fine">© 2026 נשימה. כל הזכויות שמורות. · נשימה אינה תחליף לייעוץ רפואי. במצב מצוקה פנו לעזרה: ער"ן 1201.</p>
     </div>
   </footer>

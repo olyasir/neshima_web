@@ -96,7 +96,6 @@ a { color: inherit; text-decoration: none; }
 }
 .btn-lg { padding: 16px 34px; font-size: 1.08rem; }
 .btn-sm { padding: 9px 20px; font-size: 0.95rem; }
-.btn-block { width: 100%; }
 
 .btn-primary {
   background: linear-gradient(135deg, var(--teal-dark), var(--teal-deep));
@@ -215,61 +214,24 @@ a { color: inherit; text-decoration: none; }
 .strip-item strong { font-family: var(--serif); font-size: 1.5rem; color: var(--teal-bright); }
 .strip-item span { font-size: 0.95rem; color: #cabfb4; }
 
-/* ---------- Mission ---------- */
-.mission { background: var(--ivory); }
-.mission .lead { margin-top: 18px; font-size: 1.24rem; line-height: 1.75; color: #4f4955; }
-.mission .lead strong { color: var(--ink); }
-
-/* ---------- How / cards ---------- */
-.how { background: var(--cream); }
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.card {
+/* ---------- The moment (3 steps) ---------- */
+.moment { background: var(--cream); }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
+.step {
   background: var(--ivory); border: 1px solid var(--line);
   border-radius: var(--radius); padding: 32px 28px;
   box-shadow: var(--shadow-sm);
   transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
 }
-.card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: #e0d3c2; }
-.card-icon { font-size: 2rem; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; background: var(--grad-warm); border-radius: 16px; margin-bottom: 18px; }
-.card h3 { font-size: 1.35rem; margin-bottom: 10px; }
-.card p { color: var(--ink-soft); font-size: 1.02rem; }
-
-/* ---------- Pilot ---------- */
-.pilot { background: var(--ivory); }
-.pilot-inner { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
-.pilot-copy h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); margin-bottom: 18px; }
-.checklist { list-style: none; margin: 24px 0 30px; display: flex; flex-direction: column; gap: 13px; }
-.checklist li { position: relative; padding-inline-start: 34px; color: #4f4955; font-size: 1.06rem; }
-.checklist li::before {
-  content: "✓"; position: absolute; right: 0; top: 1px;
-  width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;
-  background: var(--teal-deep); color: #fff; border-radius: 50%; font-size: 0.8rem; font-weight: 700;
+.step:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: #e0d3c2; }
+.step-num {
+  font-family: var(--serif); font-weight: 700; font-size: 1.4rem; color: var(--teal-deep);
+  width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
+  background: var(--grad-warm); border-radius: 14px; margin-bottom: 18px;
 }
-.pilot-stats { display: grid; gap: 18px; }
-.stat {
-  background: var(--grad-warm); border-radius: var(--radius);
-  padding: 26px 28px; box-shadow: var(--shadow-sm);
-  display: flex; align-items: center; gap: 20px;
-}
-.stat strong { font-family: var(--serif); font-size: 2.4rem; color: var(--teal-deep); line-height: 1; flex-shrink: 0; }
-.stat span { color: #5a4d47; font-size: 1rem; font-weight: 500; }
+.step h3 { font-size: 1.35rem; margin-bottom: 10px; }
+.step p { color: var(--ink-soft); font-size: 1.02rem; }
 
-/* ---------- Signup ---------- */
-.signup { background: var(--cream); }
-.signup-card {
-  background: var(--ivory); border: 1px solid var(--line);
-  border-radius: 28px; padding: 52px 48px; box-shadow: var(--shadow-md);
-}
-.signup-card .section-head { margin-bottom: 34px; }
-.form { display: flex; flex-direction: column; gap: 20px; }
-/* Honeypot: moved off-screen rather than display:none, which naive bots detect. */
-.hp-field { position: absolute; inset-inline-start: -9999px; width: 1px; height: 1px; overflow: hidden; }
-.field { display: flex; flex-direction: column; gap: 7px; }
-.field-row { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 18px; }
-.field label, .field .field-label { font-weight: 600; font-size: 0.98rem; color: var(--ink); }
-.field label .opt, .field .field-label .opt { font-weight: 400; color: var(--ink-soft); font-size: 0.86rem; }
-
-.chips { display: flex; flex-wrap: wrap; gap: 10px; }
 .chip {
   font-family: var(--sans); font-size: 0.98rem; color: var(--ink);
   background: var(--cream); border: 1.5px solid var(--line); border-radius: 999px;
@@ -279,58 +241,26 @@ a { color: inherit; text-decoration: none; }
 .chip:hover { border-color: var(--teal); color: var(--teal-deep); }
 .chip:focus-visible { outline: none; border-color: var(--teal); box-shadow: 0 0 0 4px rgba(20,184,166,.15); }
 .chip[aria-pressed="true"] { background: var(--teal-deep); border-color: var(--teal-deep); color: #fff; font-weight: 600; }
-.field input, .field textarea {
-  font-family: var(--sans); font-size: 1.02rem; color: var(--ink);
-  background: var(--cream); border: 1.5px solid var(--line); border-radius: 14px;
-  padding: 13px 16px; transition: border-color .2s, box-shadow .2s, background .2s;
-  width: 100%; resize: vertical;
-}
-.field input::placeholder, .field textarea::placeholder { color: #a89e94; }
-.field input:focus, .field textarea:focus { outline: none; border-color: var(--teal); background: var(--ivory); box-shadow: 0 0 0 4px rgba(20,184,166,.15); }
 
-.consent { display: flex; gap: 11px; align-items: flex-start; font-size: 0.95rem; color: var(--ink-soft); cursor: pointer; }
-.consent input { width: 19px; height: 19px; margin-top: 3px; accent-color: var(--teal-deep); flex-shrink: 0; }
-
-.form-status { font-size: 0.95rem; text-align: center; min-height: 1.2em; }
-.form-status.error { color: #b42318; }
-
-.form-success { text-align: center; padding: 30px 10px; animation: pop .5s ease forwards; }
-.success-mark { font-size: 3rem; margin-bottom: 12px; }
-.form-success h3 { font-size: 1.6rem; margin-bottom: 10px; }
-.form-success p { color: var(--ink-soft); }
-
-/* ---------- Hila pregnancy entry ---------- */
-.hila-strip { background: var(--teal-tint); border-block: 1px solid var(--line); padding: 34px 0; }
-.hila-strip-inner { display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; text-align: center; }
-.hila-strip p { color: var(--ink); font-size: 1.05rem; }
-.hila-strip a {
+/* ---------- Tinted one-line strips (install hint + Hila pregnancy entry) ---------- */
+.install-strip, .hila-strip { background: var(--teal-tint); border-block: 1px solid var(--line); padding: 34px 0; }
+.install-strip-inner, .hila-strip-inner { display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; text-align: center; }
+.install-strip p, .hila-strip p { color: var(--ink); font-size: 1.05rem; }
+.install-strip a, .hila-strip a {
   color: var(--teal-deep); font-weight: 600; white-space: nowrap;
   border-bottom: 1px solid rgba(15, 118, 110, .45);
   transition: color .2s, border-color .2s;
 }
-.hila-strip a:hover { color: var(--teal-dark); border-color: var(--teal-dark); }
+.install-strip a:hover, .hila-strip a:hover { color: var(--teal-dark); border-color: var(--teal-dark); }
 
-/* ---------- Team ---------- */
-.team { background: var(--ivory); }
-.team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 880px; margin-inline: auto; }
-.member {
-  background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 38px 34px; text-align: center;
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-.member:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-.avatar {
-  width: 92px; height: 92px; border-radius: 50%; margin: 0 auto 18px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--serif); font-weight: 700; font-size: 2rem; color: #fff;
-  letter-spacing: 2px; box-shadow: var(--shadow-sm);
-}
-.avatar span { font-size: 2rem; }
-.avatar-olya { background: linear-gradient(135deg, var(--teal), var(--teal-deep)); }
-.avatar-nadin { background: linear-gradient(135deg, var(--teal-deep), var(--teal-dark)); }
-.member h3 { font-size: 1.5rem; margin-bottom: 4px; }
-.member .role { color: var(--teal-deep); font-weight: 600; font-size: 0.98rem; margin-bottom: 14px; }
-.member .bio { color: var(--ink-soft); font-size: 1.02rem; }
+/* ---------- Quiz bridge ---------- */
+.quiz-bridge { background: var(--ivory); }
+.quiz-bridge .lead { margin-bottom: 30px; }
+
+/* ---------- About (שתי אחיות; markup ships commented out until Nadin's OK) ---------- */
+.about { background: var(--ivory); }
+.about .lead { margin-bottom: 18px; }
+.about-emph { font-weight: 600; color: var(--ink); margin-bottom: 30px; }
 
 /* ---------- Closing ---------- */
 .closing { background: var(--grad-warm); }
@@ -364,8 +294,7 @@ a { color: inherit; text-decoration: none; }
   .hero-inner { grid-template-columns: 1fr; gap: 36px; }
   /* The demo stays below the hero copy: read the promise first, then try it. */
   .phone { width: 300px; }
-  .pilot-inner { grid-template-columns: 1fr; gap: 36px; }
-  .cards { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 760px) {
@@ -379,11 +308,6 @@ a { color: inherit; text-decoration: none; }
   .hero-sub { margin-inline: auto; }
   .hero-cta { justify-content: center; }
   .strip-inner { grid-template-columns: repeat(2, 1fr); gap: 24px 12px; }
-  .cards { grid-template-columns: 1fr; }
-  .team-grid { grid-template-columns: 1fr; }
-  .signup-card { padding: 36px 22px; }
-  .field-row { grid-template-columns: 1fr; }
-  .stat strong { font-size: 2rem; }
 }
 
 @media (max-width: 420px) {
