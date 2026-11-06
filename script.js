@@ -78,6 +78,12 @@
       noGo: 'איך?',
       breath: 'נושמים יחד: שאיפה איטית ל־4 שניות, עצירה קצרה, ונשיפה ארוכה ל־6. עוד פעמיים כאלה. רוב גלי החשק חולפים בלי לעשן — הם עולים, מגיעים לשיא, ויורדים.',
       breathGo: 'הגל ירד',
+      breathStill: 'עדיין חזק',
+      stillStrong: 'זה בסדר, אפשר להישאר כאן. לפעמים הגל מגיע בכמה סבבים, ואין לאן למהר. מה יעזור עכשיו?',
+      againChip: 'עוד סבב נשימה',
+      otherChip: 'משהו אחר',
+      breathAgain: 'עוד סבב, באותו קצב: שאיפה איטית ל־4, עצירה קצרה, נשיפה ארוכה ל־6. אני כאן איתכם.',
+      other: 'אפשר לצאת רגע החוצה, לשטוף פנים במים קרים או לקום ולהתהלך בבית. אני כאן עד שתגידו שהגל ירד.',
       counter: 'עוד חשק שעברת ✔ נשימה סופרת את הרגעים האלה — מונה שרק עולה, גם אם הייתה נפילה בדרך. וברגע אמיתי, השיחה פרטית לגמרי ונשימה זוכרת מה עזר לך.'
     };
 
@@ -126,15 +132,31 @@
       scrollToLatest();
     }
 
-    function stepBreath() {
-      coach(SCRIPT.breath, function () {
-        chips([{ label: SCRIPT.breathGo, next: function () {
-          coach(SCRIPT.counter, function () {
-            endCard.hidden = false;
-            scrollToLatest();
-          });
-        } }]);
+    function finish() {
+      coach(SCRIPT.counter, function () {
+        endCard.hidden = false;
+        scrollToLatest();
       });
+    }
+
+    function askHowTheWaveIs() {
+      chips([
+        { label: SCRIPT.breathGo, next: finish },
+        { label: SCRIPT.breathStill, next: stepStillStrong }
+      ]);
+    }
+
+    function stepStillStrong() {
+      coach(SCRIPT.stillStrong, function () {
+        chips([
+          { label: SCRIPT.againChip, next: function () { coach(SCRIPT.breathAgain, askHowTheWaveIs); } },
+          { label: SCRIPT.otherChip, next: function () { coach(SCRIPT.other, askHowTheWaveIs); } }
+        ]);
+      });
+    }
+
+    function stepBreath() {
+      coach(SCRIPT.breath, askHowTheWaveIs);
     }
 
     function stepCigarettes() {
