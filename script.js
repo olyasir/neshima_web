@@ -84,12 +84,16 @@
       otherChip: 'משהו אחר',
       breathAgain: 'עוד סבב, באותו קצב: שאיפה איטית ל־4, עצירה קצרה, נשיפה ארוכה ל־6. אני כאן איתכם.',
       other: 'אפשר לצאת רגע החוצה, לשטוף פנים במים קרים או לקום ולהתהלך בבית. אני כאן עד שתגידו שהגל ירד.',
+      otherAgain: 'עוד דבר קטן: כוס מים לאט, או לספור חמישה דברים שרואים סביבכם. אני כאן.',
+      appNudge: 'אם הגל עדיין חזק, אפשר לעבור לשיחה אמיתית. בפנים נשימה מכירה את מה שעזר לכם קודם ומתאימה את הצעד הבא. ואפשר גם להישאר כאן.',
+      openApp: 'לפתוח את נשימה',
       counter: 'עוד חשק שעבר ✔ נשימה סופרת את הרגעים האלה — מונה שרק עולה, גם אם הייתה נפילה בדרך. וברגע אמיתי, נשימה שומרת רק כמה פרטים שעזרו, כדי לזכור אותם בפעם הבאה.'
     };
 
     var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var TYPING_MS = reducedMotion ? 250 : 900;
     var started = false;
+    var stillStrongTaps = 0;
 
     function scrollToLatest() {
       screen.scrollTop = screen.scrollHeight;
@@ -112,7 +116,17 @@
       }, TYPING_MS);
     }
 
-    function chips(options) {
+    function appLink() {
+      var a = document.createElement('a');
+      a.className = 'btn btn-ghost btn-sm js-chat';
+      a.href = CHAT_URL;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = SCRIPT.openApp;
+      return a;
+    }
+
+    function chips(options, extra) {
       var row = document.createElement('div');
       row.className = 'demo-chips';
       options.forEach(function (opt) {
@@ -128,6 +142,7 @@
         });
         row.appendChild(chip);
       });
+      if (extra) row.appendChild(extra);
       bubblesEl.appendChild(row);
       scrollToLatest();
     }
@@ -140,17 +155,24 @@
     }
 
     function askHowTheWaveIs() {
-      chips([
+      var waveChips = [
         { label: SCRIPT.breathGo, next: finish },
         { label: SCRIPT.breathStill, next: stepStillStrong }
-      ]);
+      ];
+      if (stillStrongTaps < 2) {
+        chips(waveChips);
+        return;
+      }
+      coach(SCRIPT.appNudge, function () { chips(waveChips, appLink()); });
     }
 
     function stepStillStrong() {
+      stillStrongTaps += 1;
+      var otherReply = stillStrongTaps < 2 ? SCRIPT.other : SCRIPT.otherAgain;
       coach(SCRIPT.stillStrong, function () {
         chips([
           { label: SCRIPT.againChip, next: function () { coach(SCRIPT.breathAgain, askHowTheWaveIs); } },
-          { label: SCRIPT.otherChip, next: function () { coach(SCRIPT.other, askHowTheWaveIs); } }
+          { label: SCRIPT.otherChip, next: function () { coach(otherReply, askHowTheWaveIs); } }
         ]);
       });
     }
