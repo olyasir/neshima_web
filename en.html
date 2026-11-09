@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f1ea" />
+  <title>Neshima — personal support for quitting smoking</title>
+  <meta name="description" content="Personal support for people quitting smoking. One tap at the hardest moment, and Neshima rides out the craving with you, any hour, without judgement. Free. The coach speaks Hebrew." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Neshima — personal support for quitting smoking" />
+  <meta property="og:description" content="One tap at the hardest moment. Neshima knows your triggers and rides out the craving with you, any hour, without judgement." />
+  <meta property="og:locale" content="en_US" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="alternate" hreflang="he" href="https://www.neshimacare.co.il/" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Neshima — home">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <use href="#logo-mark"></use>
+        </svg>
+        <span class="brand-name">Neshima</span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#moment">How it works</a>
+        <a href="/" class="lang-switch" lang="he" hreflang="he">עברית</a>
+      </nav>
+
+      <a href="https://app.neshimacare.co.il" class="btn btn-primary btn-sm nav-cta js-chat">Talk to Neshima</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="#moment">How it works</a>
+      <a href="/" lang="he" hreflang="he">עברית</a>
+      <a href="https://app.neshimacare.co.il" class="btn btn-primary js-chat">Talk to Neshima</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="blob blob-1"></span>
+        <span class="blob blob-2"></span>
+        <span class="blob blob-3"></span>
+      </div>
+      <div class="container hero-inner">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Help in the moment of a craving</span>
+          <h1>Neshima — personal support for people quitting smoking.</h1>
+          <p class="hero-sub">
+            One tap at the hardest moment. Neshima knows your triggers and rides out the craving with you, any hour, without judgement.
+          </p>
+          <div class="hero-cta">
+            <a href="https://app.neshimacare.co.il" class="btn btn-primary btn-lg js-chat">Open Neshima now</a>
+          </div>
+          <p class="hero-note">The Neshima app speaks Hebrew for now.</p>
+        </div>
+
+        <div class="hero-art reveal">
+          <div class="phone demo" id="sosDemo" role="group" aria-label="SOS conversation demo">
+            <div class="phone-screen demo-screen">
+              <div class="chat-head">
+                <span class="chat-dot"></span> Neshima
+              </div>
+              <div class="bubbles" id="demoBubbles" aria-live="polite">
+                <!-- Static fallback when JS is off; script.js replaces it with the tap-through demo. -->
+                <div class="bubble bot">A craving? This is exactly what I’m here for. Where is it catching you right now?</div>
+                <div class="demo-chips"><span class="chip" aria-pressed="true">At home, after a meal</span></div>
+                <div class="bubble bot">Let’s breathe together: a slow 4-second inhale, a short pause, and a long 6-second exhale. Two more like that. Most craving waves pass without smoking: they rise, peak, and fall.</div>
+              </div>
+              <div class="demo-end" id="demoEnd" hidden>
+                <p>That was a taste. Inside, Neshima already knows your triggers, and this button is with you at every moment.</p>
+                <div class="demo-end-cta">
+                  <a href="https://app.neshimacare.co.il" class="btn btn-primary btn-sm js-chat">Open Neshima</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Trust strip ===== -->
+    <section class="strip reveal">
+      <div class="container strip-inner">
+        <div class="strip-item"><strong>24/7</strong><span>There the moment you need it</span></div>
+        <div class="strip-item"><strong>In Hebrew</strong><span>At eye level, without judgement</span></div>
+        <div class="strip-item"><strong>Free, no group</strong><span>No exposure, no judgement</span></div>
+        <div class="strip-item"><strong>After a slip too</strong><span>We keep going together, no guilt</span></div>
+      </div>
+    </section>
+
+    <!-- ===== The moment ===== -->
+    <section class="section moment" id="moment">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow reveal">How it works</span>
+          <h2 class="reveal">A craving is a wave. You only need to get through it.</h2>
+        </div>
+
+        <div class="steps">
+          <article class="step reveal">
+            <div class="step-num" aria-hidden="true">1</div>
+            <h3>The craving comes</h3>
+            <p>At home after a meal, with the morning coffee, in a stressful moment. One tap on the button, and Neshima is with you.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-num" aria-hidden="true">2</div>
+            <h3>You get through it together</h3>
+            <p>Neshima knows your triggers and offers what works for you: a breathing exercise, a distraction, or just someone to talk to. Most craving waves pass without smoking.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-num" aria-hidden="true">3</div>
+            <h3>Every wave you get through counts</h3>
+            <p>The «cravings I survived» counter only goes up. Even after a slip, nothing resets, and you carry on from the same point.</p>
+          </article>
+        </div>
+
+        <div class="cta-center reveal">
+          <a href="https://app.neshimacare.co.il" class="btn btn-primary btn-lg js-chat">Open Neshima now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Install hint ===== -->
+    <section class="install-strip reveal">
+      <div class="container install-strip-inner">
+        <p><strong>Tip:</strong> add Neshima to your home screen, so the button is already there when a craving comes. Open <a href="https://app.neshimacare.co.il">app.neshimacare.co.il</a> on your phone and choose «Add to Home Screen».</p>
+      </div>
+    </section>
+
+    <!-- ===== Closing CTA ===== -->
+    <section class="section closing">
+      <div class="container narrow center reveal">
+        <h2>Every journey starts with one breath.</h2>
+        <p class="lead">The next wave will come, and this time you won’t be alone in it. Free, and waiting for you right now.</p>
+        <div class="cta-center">
+          <a href="https://app.neshimacare.co.il" class="btn btn-primary btn-lg js-chat">Open Neshima now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true"><use href="#logo-mark"></use></svg>
+        <span class="brand-name">Neshima</span>
+      </div>
+      <p class="footer-tag">Personal AI support for quitting smoking · In Hebrew, without judgement.</p>
+      <p class="footer-fine">© 2026 Neshima. All rights reserved. · Neshima is not a substitute for medical advice. If you are in distress, get help: ERAN 1201.</p>
+    </div>
+  </footer>
+
+  <!-- ===== Inline SVG defs (logo) ===== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="logo-mark" viewBox="0 0 48 48">
+        <path d="M24 6c5 6 5 10 1.5 13.5C22 23 21 27 24 31"
+              fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <path d="M11 26c4-3 9-3 13 0 4 3 9 3 13 0"
+              fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+        <path d="M13 35c3.5-2.5 7.5-2.5 11 0 3.5 2.5 7.5 2.5 11 0"
+              fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <script src="script.js"></script>
+</body>
+</html>
