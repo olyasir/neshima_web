@@ -1,8 +1,7 @@
 # נשימה — Website / אתר נחיתה
 
 Landing page for **Neshima (נשימה)** — the Hebrew AI coach that helps smokers quit,
-with a pilot sign-up form and an entry link to Hila, the pregnancy track. Static,
-responsive, RTL, no build step.
+with a pilot sign-up form. Static, responsive, RTL, no build step.
 
 ## Files
 - `index.html` — the page (Hebrew, RTL)
