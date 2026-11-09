@@ -60,7 +60,6 @@
     var screen = document.querySelector('.demo-screen');
     var bubblesEl = document.getElementById('demoBubbles');
     var endCard = document.getElementById('demoEnd');
-    var cta = document.getElementById('sosDemoCta');
     if (!screen || !bubblesEl || !endCard) return;
 
     var SCRIPT = {
@@ -77,6 +76,7 @@
       noReply: 'מצוין — זה כבר חצי ניצחון. עכשיו נותנים לגל לעבור.',
       noGo: 'איך?',
       breath: 'נושמים יחד: שאיפה איטית ל־4 שניות, עצירה קצרה, ונשיפה ארוכה ל־6. עוד פעמיים כאלה. רוב גלי החשק חולפים בלי לעשן — הם עולים, מגיעים לשיא, ויורדים.',
+      tapHint: 'בחרו תשובה כדי להמשיך 👇',
       breathGo: 'הגל ירד',
       breathStill: 'עדיין חזק',
       stillStrong: 'זה בסדר, אפשר להישאר כאן. לפעמים הגל מגיע בכמה סבבים, ואין לאן למהר. מה יעזור עכשיו?',
@@ -126,9 +126,16 @@
       return a;
     }
 
-    function chips(options, extra) {
+    function chips(options, extra, hint) {
       var row = document.createElement('div');
-      row.className = 'demo-chips';
+      row.className = 'demo-chips active';
+      var hintEl;
+      if (hint) {
+        hintEl = document.createElement('p');
+        hintEl.className = 'demo-hint';
+        hintEl.textContent = hint;
+        bubblesEl.appendChild(hintEl);
+      }
       options.forEach(function (opt) {
         var chip = document.createElement('button');
         chip.type = 'button';
@@ -137,6 +144,8 @@
         chip.textContent = opt.label;
         chip.addEventListener('click', function () {
           row.querySelectorAll('.chip').forEach(function (c) { c.disabled = true; });
+          row.classList.remove('active');
+          if (hintEl) hintEl.remove();
           chip.setAttribute('aria-pressed', 'true');
           opt.next();
         });
@@ -202,14 +211,12 @@
       coach(SCRIPT.opening, function () {
         chips(SCRIPT.contexts.map(function (c) {
           return { label: c.chip, next: function () { coach(c.reply, stepCigarettes); } };
-        }));
+        }), null, SCRIPT.tapHint);
       });
     }
 
     // With JS on, the live script replaces the static no-JS fallback.
     bubblesEl.innerHTML = '';
-
-    if (cta) cta.addEventListener('click', start);
 
     if ('IntersectionObserver' in window) {
       var demoIo = new IntersectionObserver(function (entries) {
