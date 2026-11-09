@@ -29,18 +29,177 @@
   toggle.addEventListener('click', function () {
     var open = mobileNav.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    toggle.setAttribute('aria-label', open ? 'סגירת תפריט' : 'פתיחת תפריט');
+    toggle.setAttribute('aria-label', open ? QUIZ.ui.menuClose : QUIZ.ui.menuOpen);
   });
   mobileNav.querySelectorAll('a').forEach(function (a) {
     a.addEventListener('click', function () {
       mobileNav.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'פתיחת תפריט');
+      toggle.setAttribute('aria-label', QUIZ.ui.menuOpen);
     });
   });
 
-  /* ---- Canonical copy (PRO-2 spec) ---- */
-  var QUIZ = {
+  /* ---- Canonical copy (PRO-2 spec). quiz-en.html sets <html lang="en">. ---- */
+  var QUIZ_EN = {
+    brand: 'Neshima',
+    intro: {
+      title: 'What kind of smoker are you?',
+      sub: 'Six questions, one minute, no judgement. A personal profile is waiting at the end.',
+      start: 'Start'
+    },
+    questions: [
+      {
+        key: 'attempts',
+        text: 'How many times have you seriously tried to quit?',
+        options: [
+          { key: 'never', label: 'I haven’t tried yet' },
+          { key: 'once', label: 'Once' },
+          { key: 'two_three', label: '2–3 times' },
+          { key: 'four_plus', label: '4 times or more' }
+        ]
+      },
+      {
+        key: 'obstacle',
+        text: 'What makes quitting hardest for you?',
+        options: [
+          { key: 'stress', label: 'Stress: a cigarette is how I calm down' },
+          { key: 'habit', label: 'Habit: it’s just part of my day (coffee, driving, breaks)' },
+          { key: 'social', label: 'Company: when people smoke around me, it’s hard not to join' },
+          { key: 'reward', label: 'A treat: it’s my reward, a small moment that’s all mine' }
+        ]
+      },
+      {
+        key: 'hardest_cig',
+        text: 'Which cigarette is hardest to give up?',
+        options: [
+          { key: 'first_morning', label: 'The first one in the morning, with coffee' },
+          { key: 'after_hard_moment', label: 'The one after a hard or tense moment' },
+          { key: 'social_night', label: 'The one when going out, with friends, in the evening' },
+          { key: 'evening_treat', label: 'The one at the end of the day, the quiet you’ve earned' }
+        ]
+      },
+      {
+        key: 'craving_time',
+        text: 'When is it hardest for you without a cigarette?',
+        options: [
+          { key: 'morning', label: 'In the morning, with the first coffee' },
+          { key: 'after_meals', label: 'After meals and on breaks' },
+          { key: 'evening', label: 'Evenings and weekends' },
+          { key: 'stress_moments', label: 'In moments of stress and anger' },
+          { key: 'with_friends', label: 'When I’m with friends' }
+        ]
+      },
+      {
+        key: 'concern',
+        text: 'What worries you most about AI support?',
+        options: [
+          { key: 'privacy', label: 'Privacy: who sees what I share?' },
+          { key: 'robotic', label: 'That it will feel robotic' },
+          { key: 'wont_work', label: 'That it just won’t work' },
+          { key: 'price', label: 'The price' },
+          { key: 'nothing', label: 'Nothing, I’d give it a try' }
+        ]
+      },
+      {
+        key: 'willingness_to_pay',
+        text: 'If it really helped you quit, how much would make sense to pay per month?',
+        options: [
+          { key: 'free_only', label: 'Only if it’s free or covered by my health fund' },
+          { key: 'upto_30', label: 'Up to ₪30' },
+          { key: '30_80', label: '₪30–80' },
+          { key: 'over_80', label: 'More than ₪80' }
+        ]
+      }
+    ],
+    result: {
+      eyebrow: 'Your smoking profile',
+      types: {
+        stress: {
+          title: 'Stress smoking',
+          essence: 'Your cigarette is a pressure valve: it kicks in exactly at the hard moments.',
+          moment: 'the moment stress rises',
+          techniques: [
+            { name: 'A moment of pause', text: 'When stress rises, stop for one second before lighting up. The pause itself gives you back control.' },
+            { name: 'Change the situation', text: 'Leave the room, move the pack away, drink something cold. A craving weakens when the trigger is far away.' },
+            { name: 'Ride the wave', text: 'Most craving waves pass without smoking. Slow breathing helps you get through them, wave after wave.' }
+          ]
+        },
+        habit: {
+          title: 'Habit smoking',
+          essence: 'Your cigarette is woven into your day: coffee, driving, breaks.',
+          moment: 'the automatic moment: coffee, a break, driving',
+          techniques: [
+            { name: 'Map the regulars', text: 'Write down the cigarettes that come on their own (coffee, driving, breaks). A habit you can see, you can take apart.' },
+            { name: 'Break the pairs', text: 'Change one detail of the ritual: coffee somewhere else, a break on the other side of the building.' },
+            { name: 'Move the cues away', text: 'The pack out of your pocket, the lighter off the table. Out of reach is out of mind.' }
+          ]
+        },
+        social: {
+          title: 'Social smoking',
+          essence: 'Your cigarette lives among people: nights out and shared breaks.',
+          moment: 'the moment everyone goes out to smoke',
+          techniques: [
+            { name: 'A line ready in advance', text: '«I’m trying to quit, don’t offer me one.» With an answer ready, the moment is much less awkward.' },
+            { name: 'Plan the night out', text: 'Know in advance when everyone steps out to smoke, and decide what you’ll do in those minutes instead.' },
+            { name: 'Recruit one person', text: 'One friend or partner who knows and supports you is worth more than double the willpower.' }
+          ]
+        },
+        reward: {
+          title: 'Treat smoking',
+          essence: 'Your cigarette is the reward: the small moment you’ve earned.',
+          moment: 'the end of the day, when you’ve earned something good',
+          techniques: [
+            { name: 'Swap the reward, don’t give it up', text: 'The break, the good coffee, the moment outside all stay. Only the cigarette changes.' },
+            { name: 'A new evening ritual', text: 'Something small to look forward to at the end of the day, that’s a real treat and not a compromise.' },
+            { name: 'Keep your breaks', text: 'You can take a break without a cigarette. The break is the real need, not the smoke.' }
+          ]
+        }
+      },
+      secondaryChip: 'And also: ',
+      mixTwo: 'Most people are a mix of a few types. This is your mix.',
+      mixSingle: 'Your picture is especially clear: one type clearly leads.',
+      techniquesHeader: 'What works for your type',
+      secondarySubLabel: function (title) { return 'And for your ' + title.toLowerCase() + ' side:'; },
+      bridgeHeader: 'And for the critical moment itself',
+      bridgeBody: function (moment) {
+        return 'For your type, the critical moment is ' + moment + '. That’s exactly why we built Neshima: a real conversation right at that moment, 24/7, without judgement. The Neshima app speaks Hebrew for now.';
+      },
+      shareNudge: 'Know people who’d recognise themselves in this type? Send them the quiz.',
+      cravingLines: {
+        morning: 'The morning is your starting point: beat the first cigarette and you change the whole day.',
+        after_meals: 'The moments after meals are your opportunity: a new ritual instead of an old one.',
+        evening: 'Evenings are your ground: right when it’s hard, Neshima is awake with you.',
+        stress_moments: 'Moments of stress are your key: that’s where the habit is strongest, and that’s where it changes.',
+        with_friends: 'Get-togethers are your challenge: you can stay in the room without lighting up.'
+      },
+      reassuranceLines: {
+        privacy: 'A fair question. Ask us anything about how your information is handled before you start.',
+        robotic: 'And Neshima doesn’t lecture or preach. It talks with you at eye level.',
+        wont_work: 'No magic promises: you start small, see what works for you, and go from there.',
+        price: 'And Neshima is available now for free, no credit card.',
+        nothing: 'Then there’s no reason to wait. Neshima is here now.'
+      },
+      cta: 'Talk to Neshima now'
+    },
+    email: {
+      header: 'Want the full plan, tailored to your type?',
+      placeholder: 'Your email',
+      button: 'Keep me posted',
+      micro: 'We’ll use your email only to update you on what’s new and on the full plan for your type. No spam.',
+      success: 'Thank you 💛 We’ll keep you posted.',
+      error: 'Oops, something went wrong sending it. You can try again.'
+    },
+    ui: {
+      back: 'Back to the previous question',
+      backToIntro: 'Back to the start',
+      progress: function (n, total) { return 'Question ' + n + ' of ' + total; },
+      menuOpen: 'Open menu',
+      menuClose: 'Close menu'
+    }
+  };
+
+  var QUIZ_HE = {
+    brand: 'נשימה',
     intro: {
       title: 'מה סוג העישון שלך?',
       sub: 'שש שאלות, דקה אחת, בלי שיפוט. בסוף מחכה לך פרופיל אישי.',
@@ -191,9 +350,13 @@
     ui: {
       back: 'חזרה לשאלה הקודמת',
       backToIntro: 'חזרה להתחלה',
-      progress: function (n, total) { return 'שאלה ' + n + ' מתוך ' + total; }
+      progress: function (n, total) { return 'שאלה ' + n + ' מתוך ' + total; },
+      menuOpen: 'פתיחת תפריט',
+      menuClose: 'סגירת תפריט'
     }
   };
+
+  var QUIZ = document.documentElement.lang === 'en' ? QUIZ_EN : QUIZ_HE;
 
   /* ---- State ---- */
   var app = document.getElementById('quizApp');
@@ -279,7 +442,7 @@
   function renderIntro() {
     app.innerHTML =
       '<div class="quiz-intro center">' +
-      '<p class="eyebrow">נשימה</p>' +
+      '<p class="eyebrow">' + QUIZ.brand + '</p>' +
       '<h1 class="quiz-title" tabindex="-1" data-focus>' + QUIZ.intro.title + '</h1>' +
       '<p class="quiz-sub">' + QUIZ.intro.sub + '</p>' +
       '<button type="button" class="btn btn-primary btn-lg" id="quizStart">' + QUIZ.intro.start + '</button>' +
@@ -359,7 +522,7 @@
       '<div class="quiz-profile-card">' +
       '<p class="quiz-profile-brand" aria-hidden="true">' +
       '<svg class="brand-mark" viewBox="0 0 48 48"><use href="#logo-mark"></use></svg>' +
-      '<span>נשימה</span>' +
+      '<span>' + QUIZ.brand + '</span>' +
       '</p>' +
       '<p class="eyebrow">' + QUIZ.result.eyebrow + '</p>' +
       '<h2 class="quiz-title quiz-profile-title" tabindex="-1" data-focus>' + primary.title + '</h2>' +
@@ -417,7 +580,7 @@
     if (!answersPosted) {
       answersPosted = true;
       postResponse().catch(function (err) {
-        console.error('[נשימה] quiz response not stored:', err);
+        console.error('[Neshima] quiz response not stored:', err);
       });
     }
 
