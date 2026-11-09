@@ -133,9 +133,9 @@ a { color: inherit; text-decoration: none; }
 .nav a:hover::after { width: 100%; }
 
 .nav-cta { margin-inline-start: 4px; }
-.nav a.lang-switch { font-size: .9rem; font-weight: 600; color: var(--teal-deep); border: 1.5px solid var(--line); border-radius: 999px; padding: 2px 12px; }
-.nav a.lang-switch::after { display: none; }
-.nav a.lang-switch:hover { border-color: var(--teal); }
+/* Language toggle: visible at every width, including next to the mobile menu button. */
+.lang-toggle { font-size: .9rem; font-weight: 600; color: var(--teal-deep); border: 1.5px solid var(--line); border-radius: 999px; padding: 4px 12px; margin-inline-start: 8px; white-space: nowrap; }
+.lang-toggle:hover { border-color: var(--teal); }
 
 .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; margin-inline-start: auto; }
 .nav-toggle span { width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: .3s; }
@@ -306,7 +306,8 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 760px) {
   .nav, .nav-cta { display: none; }
-  .nav-toggle { display: flex; }
+  .nav-toggle { display: flex; margin-inline-start: 8px; }
+  .lang-toggle { margin-inline-start: auto; }
   body { font-size: 17px; }
   .section { padding: 72px 0; }
   .hero { padding: 40px 0 60px; }
