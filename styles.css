@@ -291,7 +291,7 @@ a { color: inherit; text-decoration: none; }
    Responsive
    ========================================================= */
 @media (max-width: 940px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+  .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 36px; }
   /* The demo stays below the hero copy: read the promise first, then try it. */
   .phone { width: 300px; }
   .steps { grid-template-columns: 1fr; }
