@@ -22,18 +22,21 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* ---- Page language: en.html sets <html lang="en">; everything else is Hebrew. ---- */
+  var EN = document.documentElement.lang === 'en';
+
   /* ---- Mobile nav toggle ---- */
   var toggle = document.getElementById('navToggle');
   var mobileNav = document.getElementById('mobileNav');
   function closeNav() {
     mobileNav.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'פתיחת תפריט');
+    toggle.setAttribute('aria-label', EN ? 'Open menu' : 'פתיחת תפריט');
   }
   toggle.addEventListener('click', function () {
     var open = mobileNav.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    toggle.setAttribute('aria-label', open ? 'סגירת תפריט' : 'פתיחת תפריט');
+    toggle.setAttribute('aria-label', open ? (EN ? 'Close menu' : 'סגירת תפריט') : (EN ? 'Open menu' : 'פתיחת תפריט'));
   });
   mobileNav.querySelectorAll('a').forEach(function (a) {
     a.addEventListener('click', closeNav);
@@ -62,7 +65,35 @@
     var endCard = document.getElementById('demoEnd');
     if (!screen || !bubblesEl || !endCard) return;
 
-    var SCRIPT = {
+    var SCRIPT_EN = {
+      opening: 'A craving? This is exactly what I’m here for. Where is it catching you right now?',
+      contexts: [
+        { chip: 'At home, after a meal', reply: 'After a meal is one of the strongest moments: your body learned to link the two. Are there cigarettes within reach?' },
+        { chip: 'At work, stressful day', reply: 'A stressful day looks for a release valve, and that makes complete sense. Are there cigarettes within reach?' },
+        { chip: 'Evening, with coffee', reply: 'Coffee and a cigarette are an old pair. That’s the habit talking, not a need. Are there cigarettes within reach?' }
+      ],
+      yesChip: 'Yes, right here',
+      yesReply: 'The strongest move right now is distance: put the pack in another room, or step outside for a moment. The wave is strongest in the first few minutes, and a little distance weakens it a lot.',
+      yesGo: 'Done. Let’s go on',
+      noChip: 'No',
+      noReply: 'Great, that’s already half the win. Now we let the wave pass.',
+      noGo: 'How?',
+      breath: 'Let’s breathe together: a slow 4-second inhale, a short pause, and a long 6-second exhale. Two more like that. Most craving waves pass without smoking: they rise, peak, and fall.',
+      tapHint: 'Choose an answer to continue 👇',
+      breathGo: 'The wave went down',
+      breathStill: 'Still strong',
+      stillStrong: 'That’s okay, you can stay here. Sometimes a wave comes in a few rounds, and there’s no rush. What would help now?',
+      againChip: 'Another breathing round',
+      otherChip: 'Something else',
+      breathAgain: 'Another round, same pace: a slow inhale for 4, a short pause, a long exhale for 6. I’m here with you.',
+      other: 'You could step outside for a moment, splash cold water on your face, or get up and walk around. I’m here until you tell me the wave went down.',
+      otherAgain: 'One more small thing: a glass of water, slowly, or count five things you can see around you. I’m here.',
+      appNudge: 'If the wave is still strong, you can move to a real conversation. Inside, Neshima knows what helped you before and fits the next step to you. Or you can stay here.',
+      openApp: 'Open Neshima',
+      counter: 'Another craving passed ✔ Neshima counts these moments: a counter that only goes up, even if there was a slip along the way.'
+    };
+
+    var SCRIPT = EN ? SCRIPT_EN : {
       opening: 'רגע של חשק? בדיוק בשביל זה אני כאן. איפה זה תופס אותך עכשיו?',
       contexts: [
         { chip: 'בבית, אחרי ארוחה', reply: 'אחרי ארוחה זה אחד הרגעים הכי חזקים — הגוף התרגל לחבר בין השניים. יש סיגריות בהישג יד?' },
