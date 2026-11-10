@@ -8,6 +8,7 @@
   // backend, which hosts the quiz-response store.
   var CHAT_URL = 'https://app.neshimacare.co.il';
   var ENDPOINT = 'https://hila.neshimacare.co.il/api/quiz-response';
+  var DOUBLE_TAP_WINDOW_MS = 1000;
 
   /* ---- Shared shell (same behaviour as script.js on index.html) ---- */
   document.querySelectorAll('a.js-chat').forEach(function (a) {
@@ -467,6 +468,14 @@
     );
   }
 
+  // Disabled rather than click-ignored: automated clicks then wait for the button instead of being lost.
+  function disableUntilDoubleTapPasses(controls) {
+    controls.forEach(function (control) { control.disabled = true; });
+    setTimeout(function () {
+      controls.forEach(function (control) { control.disabled = false; });
+    }, DOUBLE_TAP_WINDOW_MS);
+  }
+
   function renderQuestion(idx) {
     var q = QUIZ.questions[idx];
     var chosen = answers[q.key];
@@ -489,6 +498,7 @@
       '</button>';
     app.innerHTML = html;
 
+    disableUntilDoubleTapPasses(app.querySelectorAll('.quiz-option, #quizBack'));
     app.querySelectorAll('.quiz-option').forEach(function (btn) {
       btn.addEventListener('click', function () {
         answers[q.key] = btn.getAttribute('data-key');

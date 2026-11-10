@@ -355,7 +355,7 @@ a { color: inherit; text-decoration: none; }
 .quiz-option {
   text-align: start; padding: 15px 18px; font-size: 1.05rem; font-family: inherit;
   color: var(--ink); background: var(--cream); border: 1.5px solid var(--line);
-  border-radius: var(--radius-sm); cursor: pointer;
+  border-radius: var(--radius-sm); cursor: pointer; touch-action: manipulation;
   transition: border-color .2s, background .2s, transform .15s;
 }
 .quiz-option:hover, .quiz-option:focus-visible {
