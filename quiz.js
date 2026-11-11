@@ -357,7 +357,8 @@
     }
   };
 
-  var QUIZ = document.documentElement.lang === 'en' ? QUIZ_EN : QUIZ_HE;
+  var LANG = document.documentElement.lang === 'en' ? 'en' : 'he';
+  var QUIZ = LANG === 'en' ? QUIZ_EN : QUIZ_HE;
 
   /* ---- State ---- */
   var app = document.getElementById('quizApp');
@@ -423,7 +424,8 @@
       quiz_id: quizId,
       answers: answers,
       result_type: p.primary,
-      source: 'quiz'
+      source: 'quiz',
+      lang: LANG
     };
     if (p.secondary) payload.result_secondary = p.secondary;
     if (email) payload.email = email;
@@ -640,6 +642,7 @@
       answers: answers,
       result_type: p.primary,
       source: 'quiz',
+      lang: LANG,
       email: email,
       website: honeypot
     };
