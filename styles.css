@@ -17,6 +17,7 @@
   --teal-soft:   #ccfbf1;
   --teal-bright: #5eead4;      /* on dark backgrounds */
   --line:        #e7ddd0;
+  --error:       #b42318;
 
   --grad-warm:  linear-gradient(135deg, #ccfbf1 0%, #f0fdfa 45%, #f6e7d6 100%);
 
@@ -365,11 +366,14 @@ a { color: inherit; text-decoration: none; }
 .quiz-option.selected { border-color: var(--teal-deep); background: var(--teal-tint); font-weight: 600; }
 
 .quiz-back {
-  background: none; border: none; cursor: pointer; margin-top: 24px;
+  display: inline-flex; align-items: center; min-height: 44px; min-width: 44px;
+  padding: 10px 12px; margin-top: 14px; margin-inline-start: -12px;
+  background: none; border: none; border-radius: var(--radius-sm); cursor: pointer;
   font-family: inherit; font-size: 0.95rem; color: var(--ink-soft);
-  text-decoration: underline; text-underline-offset: 3px;
+  text-decoration: underline; text-underline-offset: 3px; touch-action: manipulation;
 }
 .quiz-back:hover { color: var(--teal-deep); }
+.quiz-back:focus-visible { outline: 2px solid var(--teal-deep); outline-offset: 2px; }
 
 .quiz-body { font-size: 1.1rem; line-height: 1.75; color: #4f4955; margin-bottom: 18px; }
 .quiz-line { font-size: 1.05rem; line-height: 1.7; color: var(--ink); margin-bottom: 10px; }
@@ -410,7 +414,13 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink); background: var(--cream); border: 1.5px solid var(--line);
   border-radius: var(--radius-sm);
 }
-.quiz-email-input::placeholder { color: #a89e94; }
+.quiz-email-label { display: block; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+.quiz-email-input::placeholder { color: var(--ink-soft); }
+.quiz-email-input[aria-invalid="true"],
+.quiz-email-input[aria-invalid="true"]:focus { border-color: var(--error); }
+.form-status { font-size: 0.95rem; }
+.form-status:not(:empty) { margin-top: 8px; }
+.form-status.error { color: var(--error); font-weight: 600; }
 [dir="rtl"] .quiz-email-input::placeholder { text-align: right; }
 .quiz-email-input:focus {
   outline: none; border-color: var(--teal); background: var(--ivory);

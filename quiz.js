@@ -184,7 +184,9 @@
     },
     email: {
       header: 'Want the full plan, tailored to your type?',
-      placeholder: 'Your email',
+      label: 'Your email',
+      placeholder: 'name@example.com',
+      invalid: 'That email address doesn’t look right. Could you check it?',
       button: 'Keep me posted',
       micro: 'We’ll use your email only to update you on what’s new and on the full plan for your type. No spam.',
       success: 'Thank you 💛 We’ll keep you posted.',
@@ -342,7 +344,9 @@
     },
     email: {
       header: 'רוצים את התוכנית המלאה, מותאמת לסוג שלך?',
-      placeholder: 'המייל שלך',
+      label: 'המייל שלך',
+      placeholder: 'name@example.com',
+      invalid: 'כתובת המייל לא נראית תקינה. אפשר לבדוק אותה?',
       button: 'לעדכן אותי',
       micro: 'נשתמש במייל רק כדי לעדכן על חידושים ועל התוכנית המלאה, מותאמת לסוג שלך. בלי ספאם.',
       success: 'תודה 💛 נעדכן אותך.',
@@ -470,12 +474,12 @@
     );
   }
 
-  // Disabled rather than click-ignored: automated clicks then wait for the button instead of being lost.
-  function disableUntilDoubleTapPasses(controls) {
-    controls.forEach(function (control) { control.disabled = true; });
-    setTimeout(function () {
-      controls.forEach(function (control) { control.disabled = false; });
-    }, DOUBLE_TAP_WINDOW_MS);
+  // Keyboard activation fires a click with detail 0, so only pointer taps are held back.
+  function ignoringEarlyPointerTaps(renderedAt, handler) {
+    return function (e) {
+      if (e.detail > 0 && Date.now() - renderedAt < DOUBLE_TAP_WINDOW_MS) return;
+      handler();
+    };
   }
 
   function renderQuestion(idx) {
@@ -500,18 +504,18 @@
       '</button>';
     app.innerHTML = html;
 
-    disableUntilDoubleTapPasses(app.querySelectorAll('.quiz-option, #quizBack'));
+    var renderedAt = Date.now();
     app.querySelectorAll('.quiz-option').forEach(function (btn) {
-      btn.addEventListener('click', function () {
+      btn.addEventListener('click', ignoringEarlyPointerTaps(renderedAt, function () {
         answers[q.key] = btn.getAttribute('data-key');
         if (idx + 1 < QUIZ.questions.length) renderQuestion(idx + 1);
         else renderResult();
-      });
+      }));
     });
-    document.getElementById('quizBack').addEventListener('click', function () {
+    document.getElementById('quizBack').addEventListener('click', ignoringEarlyPointerTaps(renderedAt, function () {
       if (idx === 0) renderIntro();
       else renderQuestion(idx - 1);
-    });
+    }));
     focusHeading();
   }
 
@@ -563,15 +567,16 @@
       '<div class="quiz-email">' +
       '<h3>' + QUIZ.email.header + '</h3>' +
       '<form id="quizEmailForm" class="quiz-email-form" novalidate>' +
+      '<label for="quizEmail" class="quiz-email-label">' + QUIZ.email.label + '</label>' +
       '<div class="quiz-email-row">' +
       '<input type="email" id="quizEmail" name="email" class="quiz-email-input" dir="ltr" maxlength="200"' +
-      ' placeholder="' + QUIZ.email.placeholder + '" autocomplete="email" aria-label="' + QUIZ.email.placeholder + '" required />' +
+      ' placeholder="' + QUIZ.email.placeholder + '" autocomplete="email" aria-describedby="quizEmailStatus" required />' +
       '<button type="submit" class="btn btn-primary">' + QUIZ.email.button + '</button>' +
       '</div>' +
       /* Honeypot — mirrors the backend contract; humans never see it. */
       '<input type="text" name="website" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />' +
-      '<p class="quiz-micro">' + QUIZ.email.micro + '</p>' +
       '<p class="form-status" id="quizEmailStatus" role="status"></p>' +
+      '<p class="quiz-micro">' + QUIZ.email.micro + '</p>' +
       '</form>' +
       '</div>' +
       '<hr class="quiz-divider" />' +
@@ -599,12 +604,20 @@
     var form = document.getElementById('quizEmailForm');
     var input = document.getElementById('quizEmail');
     var status = document.getElementById('quizEmailStatus');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+    function clearStatus() {
+      input.removeAttribute('aria-invalid');
       status.textContent = '';
       status.classList.remove('error');
-      if (!form.checkValidity()) {
-        form.reportValidity();
+    }
+    input.addEventListener('input', clearStatus);
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearStatus();
+      if (!input.checkValidity()) {
+        input.setAttribute('aria-invalid', 'true');
+        status.textContent = QUIZ.email.invalid;
+        status.classList.add('error');
+        input.focus();
         return;
       }
       var btn = form.querySelector('button[type="submit"]');
