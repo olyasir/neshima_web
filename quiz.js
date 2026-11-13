@@ -213,7 +213,7 @@
         options: [
           { key: 'never', label: 'עוד לא ניסיתי' },
           { key: 'once', label: 'פעם אחת' },
-          { key: 'two_three', label: '2–3 פעמים' },
+          { key: 'two_three', label: '2-3 פעמים' },
           { key: 'four_plus', label: '4 פעמים או יותר' }
         ]
       },
@@ -265,7 +265,7 @@
         options: [
           { key: 'free_only', label: 'רק אם זה בחינם או במימון קופת החולים' },
           { key: 'upto_30', label: 'עד 30 ₪' },
-          { key: '30_80', label: '30–80 ₪' },
+          { key: '30_80', label: '30-80 ₪' },
           { key: 'over_80', label: 'יותר מ-80 ₪' }
         ]
       }
@@ -564,7 +564,7 @@
       '<h3>' + QUIZ.email.header + '</h3>' +
       '<form id="quizEmailForm" class="quiz-email-form" novalidate>' +
       '<div class="quiz-email-row">' +
-      '<input type="email" id="quizEmail" name="email" class="quiz-email-input" maxlength="200"' +
+      '<input type="email" id="quizEmail" name="email" class="quiz-email-input" dir="ltr" maxlength="200"' +
       ' placeholder="' + QUIZ.email.placeholder + '" autocomplete="email" aria-label="' + QUIZ.email.placeholder + '" required />' +
       '<button type="submit" class="btn btn-primary">' + QUIZ.email.button + '</button>' +
       '</div>' +
