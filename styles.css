@@ -416,7 +416,8 @@ a { color: inherit; text-decoration: none; }
 }
 .quiz-email-label { display: block; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
 .quiz-email-input::placeholder { color: var(--ink-soft); }
-.quiz-email-input[aria-invalid="true"] { border-color: var(--error); }
+.quiz-email-input[aria-invalid="true"],
+.quiz-email-input[aria-invalid="true"]:focus { border-color: var(--error); }
 .form-status { font-size: 0.95rem; }
 .form-status:not(:empty) { margin-top: 8px; }
 .form-status.error { color: var(--error); font-weight: 600; }

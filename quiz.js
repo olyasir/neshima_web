@@ -575,8 +575,8 @@
       '</div>' +
       /* Honeypot — mirrors the backend contract; humans never see it. */
       '<input type="text" name="website" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />' +
-      '<p class="quiz-micro">' + QUIZ.email.micro + '</p>' +
       '<p class="form-status" id="quizEmailStatus" role="status"></p>' +
+      '<p class="quiz-micro">' + QUIZ.email.micro + '</p>' +
       '</form>' +
       '</div>' +
       '<hr class="quiz-divider" />' +
