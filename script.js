@@ -45,6 +45,10 @@
   /* ---- Reveal on scroll ---- */
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
+    reveals.forEach(function (el) {
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+    });
+    document.documentElement.classList.add('reveal-armed');
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) {
