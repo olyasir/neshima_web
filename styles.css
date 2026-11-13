@@ -411,6 +411,7 @@ a { color: inherit; text-decoration: none; }
   border-radius: var(--radius-sm);
 }
 .quiz-email-input::placeholder { color: #a89e94; }
+[dir="rtl"] .quiz-email-input::placeholder { text-align: right; }
 .quiz-email-input:focus {
   outline: none; border-color: var(--teal); background: var(--ivory);
   box-shadow: 0 0 0 4px rgba(20,184,166,.15);
