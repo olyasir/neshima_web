@@ -177,7 +177,6 @@
         privacy: 'A fair question. Ask us anything about how your information is handled before you start.',
         robotic: 'And Neshima doesn’t lecture or preach. It talks with you at eye level.',
         wont_work: 'No magic promises: you start small, see what works for you, and go from there.',
-        price: 'And Neshima is available now for free, no credit card.',
         nothing: 'Then there’s no reason to wait. Neshima is here now.'
       },
       cta: 'Talk to Neshima now'
@@ -337,7 +336,6 @@
         privacy: 'ומה שחשוב לדעת: נשימה שומרת רק כמה פרטים שעזרו, כדי לזכור אותם בפעם הבאה. בלי שיפוט.',
         robotic: 'ונשימה לא מרצה ולא מטיפה — היא מדברת איתך בגובה העיניים, בעברית.',
         wont_work: 'בלי הבטחות קסם: מתחילים בקטן, רואים מה עובד לך, ומתקדמים משם.',
-        price: 'ונשימה זמינה עכשיו בחינם — בלי כרטיס אשראי.',
         nothing: 'אז אין מה לחכות — נשימה כאן עכשיו.'
       },
       cta: 'לדבר עם נשימה עכשיו'
@@ -563,7 +561,7 @@
       cardHtml +
       '<p class="quiz-share">' + QUIZ.result.shareNudge + '</p>' +
       '<p class="quiz-line">' + cravingLine + '</p>' +
-      '<p class="quiz-line">' + reassuranceLine + '</p>' +
+      (reassuranceLine ? '<p class="quiz-line">' + reassuranceLine + '</p>' : '') +
       '<div class="quiz-email">' +
       '<h3>' + QUIZ.email.header + '</h3>' +
       '<form id="quizEmailForm" class="quiz-email-form" novalidate>' +
