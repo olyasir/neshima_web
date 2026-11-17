@@ -182,12 +182,12 @@
       cta: 'Talk to Neshima now'
     },
     email: {
-      header: 'Want the full plan, tailored to your type?',
+      header: 'Want news from Neshima?',
       label: 'Your email',
       placeholder: 'name@example.com',
       invalid: 'That email address doesn’t look right. Could you check it?',
       button: 'Keep me posted',
-      micro: 'We’ll use your email only to update you on what’s new and on the full plan for your type. No spam.',
+      micro: 'We’ll use your email only to update you on what’s new. No spam.',
       success: 'Thank you 💛 We’ll keep you posted.',
       error: 'Oops, something went wrong sending it. You can try again.'
     },
@@ -341,12 +341,12 @@
       cta: 'לדבר עם נשימה עכשיו'
     },
     email: {
-      header: 'רוצים את התוכנית המלאה, מותאמת לסוג שלך?',
+      header: 'רוצים לקבל חדשות מנשימה?',
       label: 'המייל שלך',
       placeholder: 'name@example.com',
       invalid: 'כתובת המייל לא נראית תקינה. אפשר לבדוק אותה?',
       button: 'לעדכן אותי',
-      micro: 'נשתמש במייל רק כדי לעדכן על חידושים ועל התוכנית המלאה, מותאמת לסוג שלך. בלי ספאם.',
+      micro: 'נשתמש במייל רק כדי לעדכן על חידושים. בלי ספאם.',
       success: 'תודה 💛 נעדכן אותך.',
       error: 'אופס, משהו השתבש בשליחה. אפשר לנסות שוב.'
     },
