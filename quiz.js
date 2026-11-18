@@ -163,23 +163,23 @@
       secondarySubLabel: function (title) { return 'And for your ' + title.toLowerCase() + ' side:'; },
       bridgeHeader: 'And for the critical moment itself',
       bridgeBody: function (moment) {
-        return 'For your type, the critical moment is ' + moment + '. That’s exactly why we built Neshima: a real conversation right at that moment, 24/7, without judgement. The Neshima app speaks Hebrew for now.';
+        return 'For your type, the critical moment is ' + moment + '. That’s exactly why we built Hila, Neshima’s coach: a real conversation right at that moment, 24/7, without judgement. The Neshima app speaks Hebrew for now.';
       },
       shareNudge: 'Know people who’d recognise themselves in this type? Send them the quiz.',
       cravingLines: {
         morning: 'The morning is your starting point: beat the first cigarette and you change the whole day.',
         after_meals: 'The moments after meals are your opportunity: a new ritual instead of an old one.',
-        evening: 'Evenings are your ground: right when it’s hard, Neshima is awake with you.',
+        evening: 'Evenings are your ground: right when it’s hard, Hila is awake with you.',
         stress_moments: 'Moments of stress are your key: that’s where the habit is strongest, and that’s where it changes.',
         with_friends: 'Get-togethers are your challenge: you can stay in the room without lighting up.'
       },
       reassuranceLines: {
         privacy: 'A fair question. Ask us anything about how your information is handled before you start.',
-        robotic: 'And Neshima doesn’t lecture or preach. It talks with you at eye level.',
+        robotic: 'And Hila doesn’t lecture or preach. She talks with you at eye level.',
         wont_work: 'No magic promises: you start small, see what works for you, and go from there.',
-        nothing: 'Then there’s no reason to wait. Neshima is here now.'
+        nothing: 'Then there’s no reason to wait. Hila is here now.'
       },
-      cta: 'Talk to Neshima now'
+      cta: 'Talk to Hila now'
     },
     email: {
       header: 'Want news from Neshima?',
@@ -322,23 +322,23 @@
       secondarySubLabel: function (title) { return 'ובשביל הצד של ' + title + ':'; },
       bridgeHeader: 'ולרגע הקריטי עצמו',
       bridgeBody: function (moment) {
-        return 'לסוג שלך הרגע הקריטי הוא ' + moment + '. בדיוק בשביל זה בנינו את נשימה — שיחה אמיתית בדיוק ברגע הזה, 24/7, בלי שיפוט.';
+        return 'לסוג שלך הרגע הקריטי הוא ' + moment + '. בדיוק בשביל זה בנינו את הילה, המאמנת של נשימה — שיחה אמיתית בדיוק ברגע הזה, 24/7, בלי שיפוט.';
       },
       shareNudge: 'מכירים אנשים שמזהים את עצמם בסוג הזה? שלחו להם את השאלון.',
       cravingLines: {
         morning: 'הבוקר הוא נקודת ההתחלה שלך: לנצח את הסיגריה הראשונה זה לשנות את כל היום.',
         after_meals: 'הרגעים שאחרי האוכל הם ההזדמנות שלך: טקס חדש במקום טקס ישן.',
-        evening: 'הערבים הם המגרש שלך: בדיוק כשקשה, נשימה ערה איתך.',
+        evening: 'הערבים הם המגרש שלך: בדיוק כשקשה, הילה ערה איתך.',
         stress_moments: 'רגעי הלחץ הם המפתח שלך: שם ההרגל הכי חזק — ושם גם משתנים.',
         with_friends: 'המפגשים הם האתגר שלך: אפשר להישאר בפנים גם בלי להדליק.'
       },
       reassuranceLines: {
-        privacy: 'ומה שחשוב לדעת: נשימה שומרת רק כמה פרטים שעזרו, כדי לזכור אותם בפעם הבאה. בלי שיפוט.',
-        robotic: 'ונשימה לא מרצה ולא מטיפה — היא מדברת איתך בגובה העיניים, בעברית.',
+        privacy: 'ומה שחשוב לדעת: הילה שומרת רק כמה פרטים שעזרו, כדי לזכור אותם בפעם הבאה. בלי שיפוט.',
+        robotic: 'והילה לא מרצה ולא מטיפה — היא מדברת איתך בגובה העיניים, בעברית.',
         wont_work: 'בלי הבטחות קסם: מתחילים בקטן, רואים מה עובד לך, ומתקדמים משם.',
-        nothing: 'אז אין מה לחכות — נשימה כאן עכשיו.'
+        nothing: 'אז אין מה לחכות — הילה כאן עכשיו.'
       },
-      cta: 'לדבר עם נשימה עכשיו'
+      cta: 'לדבר עם הילה עכשיו'
     },
     email: {
       header: 'רוצים לקבל חדשות מנשימה?',
