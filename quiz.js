@@ -163,23 +163,23 @@
       secondarySubLabel: function (title) { return 'And for your ' + title.toLowerCase() + ' side:'; },
       bridgeHeader: 'And for the critical moment itself',
       bridgeBody: function (moment) {
-        return 'For your type, the critical moment is ' + moment + '. That’s exactly why we built Neshima: a real conversation right at that moment, 24/7, without judgement. The Neshima app speaks Hebrew for now.';
+        return 'For your type, the critical moment is ' + moment + '. That’s exactly why we built Hila, Neshima’s coach: a real conversation right at that moment, 24/7, without judgement. The Neshima app speaks Hebrew for now.';
       },
       shareNudge: 'Know people who’d recognise themselves in this type? Send them the quiz.',
       cravingLines: {
         morning: 'The morning is your starting point: beat the first cigarette and you change the whole day.',
         after_meals: 'The moments after meals are your opportunity: a new ritual instead of an old one.',
-        evening: 'Evenings are your ground: right when it’s hard, Neshima is awake with you.',
+        evening: 'Evenings are your ground: right when it’s hard, Hila is awake with you.',
         stress_moments: 'Moments of stress are your key: that’s where the habit is strongest, and that’s where it changes.',
         with_friends: 'Get-togethers are your challenge: you can stay in the room without lighting up.'
       },
       reassuranceLines: {
         privacy: 'A fair question. Ask us anything about how your information is handled before you start.',
-        robotic: 'And Neshima doesn’t lecture or preach. It talks with you at eye level.',
+        robotic: 'And Hila doesn’t lecture or preach. She talks with you at eye level.',
         wont_work: 'No magic promises: you start small, see what works for you, and go from there.',
-        nothing: 'Then there’s no reason to wait. Neshima is here now.'
+        nothing: 'Then there’s no reason to wait. Hila is here now.'
       },
-      cta: 'Talk to Neshima now'
+      cta: 'Talk to Hila now'
     },
     email: {
       header: 'Want news from Neshima?',

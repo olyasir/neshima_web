@@ -92,9 +92,9 @@
       breathAgain: 'Another round, same pace: a slow inhale for 4, a short pause, a long exhale for 6. I’m here with you.',
       other: 'You could step outside for a moment, splash cold water on your face, or get up and walk around. I’m here until you tell me the wave went down.',
       otherAgain: 'One more small thing: a glass of water, slowly, or count five things you can see around you. I’m here.',
-      appNudge: 'If the wave is still strong, you can move to a real conversation. Inside, Neshima knows what helped you before and fits the next step to you. Or you can stay here.',
-      openApp: 'Open Neshima',
-      counter: 'Another craving passed ✔ Neshima counts these moments: a counter that only goes up, even if there was a slip along the way.'
+      appNudge: 'If the wave is still strong, you can move to a real conversation. Inside, Hila knows what helped you before and fits the next step to you. Or you can stay here.',
+      openApp: 'Talk to Hila',
+      counter: 'Another craving passed ✔ Hila counts these moments: a counter that only goes up, even if there was a slip along the way.'
     };
 
     var SCRIPT = EN ? SCRIPT_EN : {
