@@ -4,12 +4,12 @@ FROM caddy:2-alpine
 # Pages are listed one by one: a new .html/.js file must be added here or it
 # silently 404s in production (Caddy's try_files falls back to index.html).
 COPY Caddyfile /etc/caddy/Caddyfile
-COPY index.html en.html quiz.html quiz-en.html quiz.js styles.css script.js README.md /srv/
+COPY index.html en.html quiz.html quiz-en.html support.html quiz.js styles.css script.js README.md /srv/
 COPY assets/ /srv/assets/
 
 # Inlining styles.css saves first visits a render-blocking round trip (about 2.5 s on Slow 3G).
 COPY inline-styles.sh /usr/local/bin/inline-styles
-RUN cd /srv && sh /usr/local/bin/inline-styles styles.css index.html en.html quiz.html quiz-en.html
+RUN cd /srv && sh /usr/local/bin/inline-styles styles.css index.html en.html quiz.html quiz-en.html support.html
 
 EXPOSE 8080
 CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
