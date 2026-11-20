@@ -9,5 +9,5 @@
 	root * /srv
 	encode gzip zstd
 	file_server
-	try_files {path} {path}/ /index.html
+	try_files {path} {path}.html {path}/ /index.html
 }
