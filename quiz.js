@@ -440,6 +440,7 @@
 
   /* ---- Rendering ---- */
   function focusHeading() {
+    bringCardBelowHeader();
     var h = app.querySelector('[data-focus]');
     if (h) h.focus();
   }
@@ -472,6 +473,14 @@
   function reachable(step) {
     if (step === RESULT) return answeredBefore(QUIZ.questions.length);
     return typeof step === 'number' && step >= 0 && step < QUIZ.questions.length && answeredBefore(step);
+  }
+
+  var CARD_GAP_BELOW_HEADER = 16;
+
+  function bringCardBelowHeader() {
+    var headerBottom = header.getBoundingClientRect().bottom;
+    var cardTop = app.getBoundingClientRect().top;
+    if (cardTop < headerBottom) window.scrollBy(0, cardTop - headerBottom - CARD_GAP_BELOW_HEADER);
   }
 
   function render(step) {
