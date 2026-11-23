@@ -454,10 +454,49 @@
       '</div>';
     document.getElementById('quizStart').addEventListener('click', function () {
       if (!quizId) quizId = newQuizId();
-      renderQuestion(0);
+      goTo(0);
     });
     focusHeading();
   }
+
+  var INTRO = 'intro';
+  var RESULT = 'result';
+
+  function answeredBefore(idx) {
+    for (var i = 0; i < idx; i++) {
+      if (!answers[QUIZ.questions[i].key]) return false;
+    }
+    return true;
+  }
+
+  function reachable(step) {
+    if (step === RESULT) return answeredBefore(QUIZ.questions.length);
+    return typeof step === 'number' && step >= 0 && step < QUIZ.questions.length && answeredBefore(step);
+  }
+
+  function render(step) {
+    if (step === RESULT) renderResult();
+    else if (step === INTRO) renderIntro();
+    else renderQuestion(step);
+  }
+
+  function goTo(step) {
+    history.pushState({ quizStep: step }, '');
+    render(step);
+  }
+
+  function showFromHistory(state) {
+    var step = state && state.quizStep;
+    if (!reachable(step)) {
+      step = INTRO;
+      history.replaceState({ quizStep: INTRO }, '');
+    }
+    render(step);
+  }
+
+  window.addEventListener('popstate', function (e) {
+    showFromHistory(e.state);
+  });
 
   function renderDots(current) {
     var total = QUIZ.questions.length;
@@ -506,13 +545,11 @@
     app.querySelectorAll('.quiz-option').forEach(function (btn) {
       btn.addEventListener('click', ignoringEarlyPointerTaps(renderedAt, function () {
         answers[q.key] = btn.getAttribute('data-key');
-        if (idx + 1 < QUIZ.questions.length) renderQuestion(idx + 1);
-        else renderResult();
+        goTo(idx + 1 < QUIZ.questions.length ? idx + 1 : RESULT);
       }));
     });
     document.getElementById('quizBack').addEventListener('click', ignoringEarlyPointerTaps(renderedAt, function () {
-      if (idx === 0) renderIntro();
-      else renderQuestion(idx - 1);
+      history.back();
     }));
     focusHeading();
   }
@@ -665,5 +702,5 @@
     });
   }
 
-  renderIntro();
+  showFromHistory(null);
 })();
