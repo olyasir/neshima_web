@@ -164,7 +164,7 @@
       secondarySubLabel: function (title) { return 'And for your ' + title.toLowerCase() + ' side:'; },
       bridgeHeader: 'And for the critical moment itself',
       bridgeBody: function (moment) {
-        return 'For your type, the critical moment is ' + moment + '. That’s exactly why we built Hila, Neshima’s coach: a real conversation right at that moment, 24/7, without judgement. The Neshima app speaks Hebrew for now.';
+        return 'For your type, the critical moment is ' + moment + '. That’s exactly why we built Hila, Neshima’s coach: a real conversation right at that moment, 24/7, without judgement. The Neshima app is also available in English.';
       },
       shareNudge: 'Know people who’d recognise themselves in this type? Send them the quiz.',
       cravingLines: {
