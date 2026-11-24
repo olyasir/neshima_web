@@ -356,9 +356,13 @@
       whyHead: 'למה דווקא ככה',
       why: [
         { text: 'ההנחיות הקליניות בארה״ב ממליצות למבוגרים שאינם בהיריון לשלב ליווי התנהגותי עם טיפול תרופתי לגמילה. בנשימה מקבלים ליווי ומידע על תחליפי ניקוטין ותרופות. את הטיפול עצמו לא מקבלים מנשימה: על כך מדברים עם רופא או רוקח.',
-          source: 'USPSTF, 2021', href: 'https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/tobacco-use-in-adults-and-pregnant-women-counseling-and-interventions' },
+          source: 'USPSTF, 2021',
+          href: 'https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/tobacco-use-in-adults-and-pregnant-women-counseling-and-interventions'
+        },
         { text: 'במחקר מ־2025 בארצות הברית השתתפו 454 מבוגרים, וכולם קיבלו תחליפי ניקוטין. מי שקיבלו אפליקציה עם תמיכה מותאמת לרגעי סיכון נמנעו מעישון יותר: 16.4% לעומת 10% באפליקציית גמילה אחרת, בבדיקה מאמתת אחרי חצי שנה. המחקר לא בדק את נשימה.',
-          source: 'JAMA Network Open, 2025', href: 'https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2837640' },
+          source: 'JAMA Network Open, 2025',
+          href: 'https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2837640'
+        },
         { text: 'נשימה נבנית בליווי יועצת מוסמכת לגמילה מעישון.' }
       ],
       faqHead: 'שאלות שעולות',
