@@ -496,6 +496,19 @@ a { color: inherit; text-decoration: none; }
 .quiz-email-success { font-size: 1.1rem; color: var(--teal-deep); font-weight: 600; padding: 8px 0; }
 .quiz-divider { border: none; border-top: 1px solid var(--line); margin: 28px 0; }
 
+.quiz-start { display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 26px 0; text-align: center; }
+.quiz-start .btn { white-space: normal; max-width: 100%; }
+.quiz-start-note { font-size: 0.95rem; color: var(--ink-soft); }
+.quiz-sales { margin-top: 8px; }
+.quiz-sales .compare-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+.quiz-sales .compare-col { padding: 20px 18px; }
+.quiz-sales-head { font-size: 1.3rem; margin: 28px 0 14px; }
+.quiz-sales .why-list li { padding: 16px 18px; font-size: 1rem; }
+.quiz-sales .faq-list summary { padding-inline: 18px; font-size: 1.02rem; }
+.quiz-sales .faq-list details p { padding-inline: 18px; }
+.quiz-result .share-row { margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--line); text-align: center; }
+.quiz-result .share-row p { color: var(--ink-soft); }
+
 .visually-hidden {
   position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;

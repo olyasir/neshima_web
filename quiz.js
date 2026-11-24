@@ -6,13 +6,14 @@
 
   // CHAT_URL is where visitors go (the אור app); ENDPOINT stays on the hila
   // backend, which hosts the quiz-response store.
-  var CHAT_URL = 'https://app.neshimacare.co.il';
+  var CHAT_URL = document.documentElement.lang === 'en'
+    ? 'https://app.neshimacare.co.il/?lang=en'
+    : 'https://app.neshimacare.co.il';
   var ENDPOINT = 'https://hila.neshimacare.co.il/api/quiz-response';
   var DOUBLE_TAP_WINDOW_MS = 1000;
 
   /* ---- Shared shell (same behaviour as script.js on index.html) ---- */
   document.querySelectorAll('a.js-chat').forEach(function (a) {
-    a.href = CHAT_URL;
     a.target = '_blank';
     a.rel = 'noopener';
   });
@@ -338,7 +339,36 @@
         wont_work: 'בלי הבטחות קסם: מתחילים בקטן, רואים מה עובד לך, ומתקדמים משם.',
         nothing: 'אז אין מה לחכות — הילה כאן עכשיו.'
       },
-      cta: 'לדבר עם הילה עכשיו'
+      cta: 'לדבר עם הילה עכשיו',
+      startCta: 'להתחיל את השלב הראשון בחינם',
+      startNote: 'ההמשך ב־₪349.',
+      shareButton: 'לשתף',
+      shareCopied: 'הקישור הועתק'
+    },
+    sales: {
+      oldHead: 'כוח רצון לבד',
+      newHead: 'השיטה של נשימה',
+      rows: [
+        ['מחכים שהחשק יעבור', 'יודעים מה עושים כשהוא מגיע'],
+        ['מונה ימים שמתאפס אחרי מעידה', 'מונה חשקים שעברתם, שרק עולה'],
+        ['כל ניסיון מתחיל מאפס', 'מתכוננים לפני יום ההפסקה']
+      ],
+      whyHead: 'למה דווקא ככה',
+      why: [
+        { text: 'ההנחיות הקליניות בארה״ב ממליצות למבוגרים שאינם בהיריון לשלב ליווי התנהגותי עם טיפול תרופתי לגמילה. בנשימה מקבלים ליווי ומידע על תחליפי ניקוטין ותרופות. את הטיפול עצמו לא מקבלים מנשימה: על כך מדברים עם רופא או רוקח.',
+          source: 'USPSTF, 2021', href: 'https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/tobacco-use-in-adults-and-pregnant-women-counseling-and-interventions' },
+        { text: 'במחקר מ־2025 בארצות הברית השתתפו 454 מבוגרים, וכולם קיבלו תחליפי ניקוטין. מי שקיבלו אפליקציה עם תמיכה מותאמת לרגעי סיכון נמנעו מעישון יותר: 16.4% לעומת 10% באפליקציית גמילה אחרת, בבדיקה מאמתת אחרי חצי שנה. המחקר לא בדק את נשימה.',
+          source: 'JAMA Network Open, 2025', href: 'https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2837640' },
+        { text: 'נשימה נבנית בליווי יועצת מוסמכת לגמילה מעישון.' }
+      ],
+      faqHead: 'שאלות שעולות',
+      faq: [
+        ['כבר ניסיתי ולא הצלחתי', 'ניסיון שלא החזיק הוא לא סוף הדרך. אפשר ללמוד ממנו מתי היה הכי קשה, ולהתכונן לרגע הזה.'],
+        ['אחכה לתקופה רגועה יותר', 'גם אחרי תקופה רגועה מגיעה תקופה עמוסה. כשלומדים לעבור חשק בתוך החיים כמו שהם, זה נשאר איתכם.'],
+        ['זה באמת עובד?', 'אין לנו הבטחה, וגם לא נתוני הצלחה של נשימה. השיטה נשענת על מחקר והנחיות קליניות, שמופיעים כאן למעלה עם קישורים.'],
+        ['יש בוטים בחינם, למה לשלם?', 'בוט עונה על שאלות. בנשימה יש תוכנית בשלבים, תרגילים לרגע החשק ומונה של חשקים שעברתם. את השלב הראשון אפשר לנסות בחינם.'],
+        ['מה בחינם ומה בתשלום?', 'השלב הראשון בחינם. בסופו מחליטים אם להמשיך ב־₪349.']
+      ]
     },
     email: {
       header: 'רוצים לקבל חדשות מנשימה?',
@@ -571,6 +601,67 @@
     return html;
   }
 
+  function startHtml() {
+    return '<div class="quiz-start">' +
+      '<a href="#" class="btn btn-primary btn-lg js-chat">' + QUIZ.result.startCta + '</a>' +
+      '<p class="quiz-start-note">' + QUIZ.result.startNote + '</p>' +
+      '</div>';
+  }
+
+  function salesHtml(s) {
+    var oldItems = '', newItems = '', why = '', faq = '';
+    s.rows.forEach(function (r) {
+      oldItems += '<li>' + r[0] + '</li>';
+      newItems += '<li>' + r[1] + '</li>';
+    });
+    s.why.forEach(function (w) {
+      why += '<li>' + w.text +
+        (w.href ? ' <a class="source-link" href="' + w.href + '" target="_blank" rel="noopener" lang="en" dir="ltr">' + w.source + '</a>' : '') +
+        '</li>';
+    });
+    s.faq.forEach(function (f) {
+      faq += '<details><summary>' + f[0] + '</summary><p>' + f[1] + '</p></details>';
+    });
+    return '<div class="quiz-sales">' +
+      '<div class="compare-grid">' +
+      '<div class="compare-col old"><h3 class="compare-head">' + s.oldHead + '</h3><ul>' + oldItems + '</ul></div>' +
+      '<div class="compare-col new"><h3 class="compare-head">' + s.newHead + '</h3><ul>' + newItems + '</ul></div>' +
+      '</div>' +
+      '<h3 class="quiz-sales-head">' + s.whyHead + '</h3>' +
+      '<ul class="why-list">' + why + '</ul>' +
+      '<h3 class="quiz-sales-head">' + s.faqHead + '</h3>' +
+      '<div class="faq-list">' + faq + '</div>' +
+      '</div>';
+  }
+
+  function wireShare(btn) {
+    var status = btn.parentNode.querySelector('.share-status');
+    function say(text) {
+      status.textContent = '';
+      window.setTimeout(function () { status.textContent = text; }, 50);
+    }
+    btn.addEventListener('click', function () {
+      var url = location.origin + location.pathname;
+      function copy() {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(
+            function () { say(QUIZ.result.shareCopied); },
+            function () { say(url); }
+          );
+        } else {
+          say(url);
+        }
+      }
+      if (navigator.share) {
+        navigator.share({ title: document.title, url: url }).catch(function (err) {
+          if (!err || err.name !== 'AbortError') copy();
+        });
+      } else {
+        copy();
+      }
+    });
+  }
+
   function renderResult() {
     var p = profile();
     var primary = QUIZ.result.types[p.primary];
@@ -602,12 +693,11 @@
       '<p class="quiz-bridge-body">' + QUIZ.result.bridgeBody(primary.moment) + '</p>' +
       '</div>';
 
-    app.innerHTML =
-      '<div class="quiz-result">' +
-      cardHtml +
-      '<p class="quiz-share">' + QUIZ.result.shareNudge + '</p>' +
+    var profileLines =
       '<p class="quiz-line">' + cravingLine + '</p>' +
-      (reassuranceLine ? '<p class="quiz-line">' + reassuranceLine + '</p>' : '') +
+      (reassuranceLine ? '<p class="quiz-line">' + reassuranceLine + '</p>' : '');
+
+    var emailHtml =
       '<div class="quiz-email">' +
       '<h3>' + QUIZ.email.header + '</h3>' +
       '<form id="quizEmailForm" class="quiz-email-form" novalidate>' +
@@ -622,19 +712,40 @@
       '<p class="form-status" id="quizEmailStatus" role="status"></p>' +
       '<p class="quiz-micro">' + QUIZ.email.micro + '</p>' +
       '</form>' +
-      '</div>' +
-      '<hr class="quiz-divider" />' +
-      '<div class="center">' +
-      '<a href="#" class="btn btn-primary btn-lg js-chat">' + QUIZ.result.cta + '</a>' +
-      '</div>' +
       '</div>';
 
-    // Late js-chat link (rendered after the initial shell wiring).
+    app.innerHTML = QUIZ.sales
+      ? '<div class="quiz-result">' +
+        cardHtml +
+        profileLines +
+        startHtml() +
+        salesHtml(QUIZ.sales) +
+        startHtml() +
+        emailHtml +
+        '<div class="share-row">' +
+        '<p>' + QUIZ.result.shareNudge + '</p>' +
+        '<button type="button" class="btn btn-ghost js-share">' + QUIZ.result.shareButton + '</button>' +
+        '<p class="share-status" role="status"></p>' +
+        '</div>' +
+        '</div>'
+      : '<div class="quiz-result">' +
+        cardHtml +
+        '<p class="quiz-share">' + QUIZ.result.shareNudge + '</p>' +
+        profileLines +
+        emailHtml +
+        '<hr class="quiz-divider" />' +
+        '<div class="center">' +
+        '<a href="#" class="btn btn-primary btn-lg js-chat">' + QUIZ.result.cta + '</a>' +
+        '</div>' +
+        '</div>';
+
+    // Late js-chat links (rendered after the initial shell wiring).
     app.querySelectorAll('a.js-chat').forEach(function (a) {
       a.href = CHAT_URL;
       a.target = '_blank';
       a.rel = 'noopener';
     });
+    app.querySelectorAll('.js-share').forEach(wireShare);
 
     // POST №1 — the anonymous answer set, once. Failure is silent to the
     // visitor: the result still shows.
