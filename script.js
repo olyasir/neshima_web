@@ -2,14 +2,48 @@
 (function () {
   'use strict';
 
-  /* ---- Chat links: anchors carry the app URL in plain href (works with JS off);
+  /* ---- Page language: en.html sets <html lang="en">; everything else is Hebrew. ---- */
+  var EN = document.documentElement.lang === 'en';
+
+  /* ---- Chat links: anchors carry their full app URL in plain href (works with JS off);
      JS only adds new-tab behaviour. ---- */
-  var CHAT_URL = 'https://app.neshimacare.co.il';
+  var CHAT_URL = EN ? 'https://app.neshimacare.co.il/?lang=en' : 'https://app.neshimacare.co.il';
   (function wireChat() {
     document.querySelectorAll('a.js-chat').forEach(function (a) {
-      a.href = CHAT_URL;
       a.target = '_blank';
       a.rel = 'noopener';
+    });
+  })();
+
+  /* ---- Share buttons: the phone's share sheet, else copy the page link ---- */
+  (function wireShare() {
+    document.querySelectorAll('.js-share').forEach(function (btn) {
+      var status = btn.parentNode.querySelector('.share-status');
+      function say(text) {
+        if (!status) return;
+        status.textContent = '';
+        window.setTimeout(function () { status.textContent = text; }, 50);
+      }
+      btn.addEventListener('click', function () {
+        var url = location.origin + location.pathname;
+        function copy() {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url).then(
+              function () { say('הקישור הועתק'); },
+              function () { say(url); }
+            );
+          } else {
+            say(url);
+          }
+        }
+        if (navigator.share) {
+          navigator.share({ title: document.title, url: url }).catch(function (err) {
+            if (!err || err.name !== 'AbortError') copy();
+          });
+        } else {
+          copy();
+        }
+      });
     });
   })();
 
@@ -21,9 +55,6 @@
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-
-  /* ---- Page language: en.html sets <html lang="en">; everything else is Hebrew. ---- */
-  var EN = document.documentElement.lang === 'en';
 
   /* ---- Mobile nav toggle ---- */
   var toggle = document.getElementById('navToggle');
