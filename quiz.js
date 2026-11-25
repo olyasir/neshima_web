@@ -781,6 +781,7 @@
       }
       var btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
+      btn.setAttribute('aria-busy', 'true');
       var email = input.value.trim();
       var honeypot = form.querySelector('input[name="website"]').value;
       var payloadEmail = email;
@@ -790,7 +791,8 @@
       send
         .then(function (res) {
           if (res.ok) {
-            form.innerHTML = '<p class="quiz-email-success">' + QUIZ.email.success + '</p>';
+            form.innerHTML = '<p class="quiz-email-success" tabindex="-1">' + QUIZ.email.success + '</p>';
+            form.firstChild.focus();
           } else {
             throw new Error('bad status ' + res.status);
           }
@@ -799,6 +801,7 @@
           status.textContent = QUIZ.email.error;
           status.classList.add('error');
           btn.disabled = false;
+          btn.removeAttribute('aria-busy');
         });
     });
 
