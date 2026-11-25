@@ -259,6 +259,57 @@ a { color: inherit; text-decoration: none; }
 .install-strip p { color: var(--ink); font-size: 1.05rem; }
 .install-strip a { white-space: nowrap; }
 
+/* ---------- Old way vs new way ---------- */
+.compare { background: var(--ivory); padding-block: 72px; }
+.compare-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.compare-col { border-radius: var(--radius); padding: 26px 24px; border: 1px solid var(--line); }
+.compare-col.old { background: var(--cream); }
+.compare-col.new { background: var(--teal-tint); border-color: var(--teal); }
+.compare .compare-head { font-size: 1.35rem; margin-bottom: 14px; }
+.compare-col.new .compare-head { color: var(--teal-deep); }
+.compare-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.compare-col li { font-size: 1.05rem; line-height: 1.5; padding-inline-start: 26px; position: relative; }
+.compare-col li::before { position: absolute; inset-inline-start: 0; font-weight: 700; }
+.compare-col.old li { color: var(--ink-soft); }
+.compare-col.old li::before { content: "–"; color: var(--ink-soft); }
+.compare-col.new li { color: var(--ink); }
+.compare-col.new li::before { content: "✓"; color: var(--teal-deep); }
+
+/* ---------- Why this method ---------- */
+.why { background: var(--ivory); }
+.why-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+.why-list li {
+  background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius-sm);
+  padding: 20px 22px; font-size: 1.05rem; line-height: 1.7;
+}
+.source-link {
+  display: inline-block; color: var(--teal-deep); font-weight: 600; font-size: 0.95rem;
+  text-decoration: underline 1px rgba(15, 118, 110, .45); text-underline-offset: 4px;
+  padding: 12px 8px; margin: -12px -8px;
+}
+.source-link:hover { color: var(--teal-dark); }
+
+/* ---------- FAQ ---------- */
+.faq { background: var(--cream); }
+.faq-list { display: flex; flex-direction: column; gap: 12px; }
+.faq-list details { background: var(--ivory); border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.faq-list summary {
+  cursor: pointer; list-style: none; min-height: 56px; padding: 14px 22px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  font-weight: 600; font-size: 1.08rem; color: var(--ink);
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; font-size: 1.4rem; line-height: 1; color: var(--teal-deep); flex: none; }
+.faq-list details[open] summary::after { content: "−"; }
+.faq-list summary:focus-visible { outline: 2px solid var(--teal-deep); outline-offset: 2px; border-radius: var(--radius-sm); }
+.faq-list details p { padding: 0 22px 18px; color: var(--ink-soft); font-size: 1.02rem; }
+
+/* ---------- Share row ---------- */
+.share-row { margin-top: 36px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.share-row p { color: #5a4d47; }
+.share-row .btn { min-height: 48px; min-width: 120px; }
+.share-status { font-size: 0.95rem; font-weight: 600; color: var(--teal-deep); min-height: 1.5em; }
+
 /* ---------- Quiz bridge ---------- */
 .quiz-bridge { background: var(--ivory); }
 .quiz-bridge .lead { margin-bottom: 30px; }
@@ -314,6 +365,10 @@ a { color: inherit; text-decoration: none; }
   /* The demo stays below the hero copy: read the promise first, then try it. */
   .phone { width: 300px; }
   .steps { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .compare-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 760px) {
@@ -440,6 +495,19 @@ a { color: inherit; text-decoration: none; }
 .quiz-micro { font-size: 0.88rem; color: var(--ink-soft); margin-top: 10px; }
 .quiz-email-success { font-size: 1.1rem; color: var(--teal-deep); font-weight: 600; padding: 8px 0; }
 .quiz-divider { border: none; border-top: 1px solid var(--line); margin: 28px 0; }
+
+.quiz-start { display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 26px 0; text-align: center; }
+.quiz-start .btn { white-space: normal; max-width: 100%; }
+.quiz-start-note { font-size: 0.95rem; color: var(--ink-soft); }
+.quiz-sales { margin-top: 8px; }
+.quiz-sales .compare-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+.quiz-sales .compare-col { padding: 20px 18px; }
+.quiz-sales-head { font-size: 1.3rem; margin: 28px 0 14px; }
+.quiz-sales .why-list li { padding: 16px 18px; font-size: 1rem; }
+.quiz-sales .faq-list summary { padding-inline: 18px; font-size: 1.02rem; }
+.quiz-sales .faq-list details p { padding-inline: 18px; }
+.quiz-result .share-row { margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--line); text-align: center; }
+.quiz-result .share-row p { color: var(--ink-soft); }
 
 .visually-hidden {
   position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
