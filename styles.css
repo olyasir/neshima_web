@@ -33,15 +33,19 @@
   --sans:  "Assistant", "Assistant Fallback Arial", "Assistant Fallback Noto", "Segoe UI", system-ui, sans-serif;
 }
 
-/* Assistant arrives after the first paint; these local faces are scaled to its widths so text wraps the same before and after the swap. */
+/* Assistant arrives after the first paint; these local faces are scaled to its widths so text wraps the same before and after the swap. Their Latin glyphs run wider than Assistant's, so they cover Hebrew only. */
 @font-face { font-family: "Assistant Fallback Arial"; font-weight: 400; src: local("Arial Hebrew"), local("ArialHebrew");
-  size-adjust: 93.8%; ascent-override: 108.7%; descent-override: 30.9%; line-gap-override: 0%; }
+  size-adjust: 93.8%; ascent-override: 108.7%; descent-override: 30.9%; line-gap-override: 0%;
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
 @font-face { font-family: "Assistant Fallback Arial"; font-weight: 700; src: local("Arial Hebrew Bold"), local("ArialHebrew-Bold");
-  size-adjust: 94.9%; ascent-override: 107.5%; descent-override: 30.6%; line-gap-override: 0%; }
+  size-adjust: 94.9%; ascent-override: 107.5%; descent-override: 30.6%; line-gap-override: 0%;
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
 @font-face { font-family: "Assistant Fallback Noto"; font-weight: 400; src: local("Noto Sans Hebrew"), local("NotoSansHebrew-Regular");
-  size-adjust: 87%; ascent-override: 117.2%; descent-override: 33.3%; line-gap-override: 0%; }
+  size-adjust: 87%; ascent-override: 117.2%; descent-override: 33.3%; line-gap-override: 0%;
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
 @font-face { font-family: "Assistant Fallback Noto"; font-weight: 700; src: local("Noto Sans Hebrew Bold"), local("NotoSansHebrew-Bold");
-  size-adjust: 87.5%; ascent-override: 116.6%; descent-override: 33.1%; line-gap-override: 0%; }
+  size-adjust: 87.5%; ascent-override: 116.6%; descent-override: 33.1%; line-gap-override: 0%;
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
