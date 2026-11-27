@@ -175,7 +175,7 @@
         with_friends: 'Get-togethers are your challenge: you can stay in the room without lighting up.'
       },
       reassuranceLines: {
-        privacy: 'A fair question. Ask us anything about how your information is handled before you start.',
+        privacy: 'A fair question. Your conversations with Hila are kept for as long as your account exists, and the Neshima team can read them. To reply, the conversation is sent to an AI service. You can delete your conversation history at any time in the app’s “Me” tab.',
         robotic: 'And Hila doesn’t lecture or preach. She talks with you at eye level.',
         wont_work: 'No magic promises: you start small, see what works for you, and go from there.',
         nothing: 'Then there’s no reason to wait. Hila is here now.'
@@ -334,7 +334,7 @@
         with_friends: 'המפגשים הם האתגר שלך: אפשר להישאר בפנים גם בלי להדליק.'
       },
       reassuranceLines: {
-        privacy: 'ומה שחשוב לדעת: הילה שומרת רק כמה פרטים שעזרו, כדי לזכור אותם בפעם הבאה. בלי שיפוט.',
+        privacy: 'ומה שחשוב לדעת: השיחות עם הילה נשמרות כל עוד החשבון קיים, וצוות נשימה יכול לקרוא אותן. כדי לענות, השיחה עוברת לשירות בינה מלאכותית. את היסטוריית השיחות אפשר למחוק בכל רגע בלשונית «אני».',
         robotic: 'והילה לא מרצה ולא מטיפה — היא מדברת איתך בגובה העיניים, בעברית.',
         wont_work: 'בלי הבטחות קסם: מתחילים בקטן, רואים מה עובד לך, ומתקדמים משם.',
         nothing: 'אז אפשר להתחיל כבר בשלב הראשון.'
